@@ -1,0 +1,21 @@
+{% extends 'common/base.html' %}
+{% block content %}
+
+<div style="background: #8d0303;text-align:center;">
+    新姫紹介
+</div>
+
+{% hr_spacer 4 '#000000' %}
+
+<a id="target" name="target"></a>
+{% include './partial/card_profile_show.html' with card=choice_card showtype="medium" comment="non" max_flag=1 %}
+{% hr_spacer_class 'default' 1 %}
+
+{% hr_spacer_class 'default' 3 %}
+
+
+{# ■ リミテッドがある時 ■ #}
+{% include "help/partial/limited_skill_description.html" with win_pt_specific="true" %}
+
+
+{% endblock %}

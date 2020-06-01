@@ -1,0 +1,44 @@
+
+<div>
+    <div class="center card_name_back center element_titleback_{{ detail_card.element_obj.id }}">
+         <span class="element_{{ detail_card.element_obj.id }}">{{ detail_card.element_obj.name }}</span>&nbsp;aaa{{ detail_card.name }}&nbsp;<span class="color_light_yellow">({{ detail_card.rarity_obj.name}})</span>
+    </div>
+
+    <div class="center">
+        <img src="{{ detail_card.image_url.large }}" class="image_card_large" />
+    </div>
+{% comment %}
+    <div class="voice_lines">
+    <img src="{{MEDIA_URL}}/imgs/common/friend_text_top.png" width="100%" />
+     {{ detail_card.profile_comment }}
+    <img src="{{MEDIA_URL}}/imgs/common/friend_text_bottom.png" width="100%" />
+    </div>
+{% endcomment %}
+
+    <div class="center mt10 mb10">
+        <span class="color_orange">{{ T.CARD_LEVEL }}</span>:1&nbsp;<span class="color_orange">Rank</span>:<span class="color_light_blue">{{ detail_card.rank}}</span>&nbsp;<span class="color_orange">{{T.CARD_NEED_COST}}</span>:{{ detail_card.require_magic}}<br />
+        <span class="color_orange">{{ T.CARD_ATTACK_SHORT }}</span>:{{ detail_card.attack }}
+        <span class="color_orange">{{ T.CARD_DEFENSE_SHORT }}</span>:{{ detail_card.defense}}
+        <span class="color_orange">{{T.CARD_FAMILY}}:</span>{{ card.family_obj.name }}<br />
+    </div>
+
+    {% include './partial/page_title.html' with title=T.SKILL class="page_title" %}
+    <div class="center">
+        <span class="color_orange">{{ T.SKILL }}</span>:{{ detail_card.chain_skill_1.name }}&nbsp;&nbsp;
+        <span class="color_orange">{{ T.SKILL_LEVEL }}</span>:1
+        <br />
+        <span class="color_orange">効果</span>:{{ detail_card.chain_skill_1.description }}
+    </div>
+    {% include './partial/section_title.html' with title="姫詳細" class="section_title" %}
+
+    <div class="center mt10">
+        <span class="color_orange">属性</span>:{{ detail_card.race_obj.name }}&nbsp;
+        <span class="color_orange">年齢</span>:{{ detail_card.get_detail.age }}&nbsp;
+        <span class="color_orange">{{ T.CARD_HEIGHT }}</span>{{ detail_card.get_detail.height }}{{ T.CARD_HEIGHT_UNIT }}&nbsp;
+        <span class="color_orange">{{ T.CARD_WEIGHT }}</span>:{{ detail_card.get_detail.weight }}{{ T.CARD_WEIGHT_UNIT }}<br /> 
+        <span class="color_orange">B</span>:{{ detail_card.get_detail.bust }}&nbsp;
+        <span class="color_orange">W</span>:{{ detail_card.get_detail.waste }}&nbsp;
+        <span class="color_orange">H</span>:{{ detail_card.get_detail.hip }}<br />
+        <span class="color_orange">趣味</span>:{{ detail_card.get_detail.hobby }}
+    </div>
+</div>

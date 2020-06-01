@@ -1,0 +1,24 @@
+{% extends 'common/base.html' %}
+{% load player_extra link_processor %}
+
+{% block content %}
+    <img src="{{ MEDIA_URL }}/imgs/common/line/line3.gif" width="100%" class="block" />
+    <div class="center flex-pack-justify back_pink">
+        <div class="select3 back_pink_right">{{ T.CARD }}</div>
+        <a href="{% opensocial_url card_sale_index %}" class="select3 block back_pink">{{ T.SELL }}</a>
+        <a href="{% opensocial_url card_deck_index %}" class="select3 block back_pink">編戝</a>
+    </div>
+    <img src="{{ MEDIA_URL }}/imgs/common/line/line2.gif" width="100%" class="block" />
+
+<div id="main">
+    {% include './card/detail-pjax.html' %}
+</div>
+<script>
+  $("a.js-pjax").pjax("#main");
+  $("#main").bind("pjax:start",function(){
+  })
+  .bind("pjax:end", function(){
+        greepf.requestScrollTo(0, 0);
+  });
+</script>
+{% endblock %}

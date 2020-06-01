@@ -1,0 +1,53 @@
+<div class="new_button_voice">
+    <div class="new_main_button_group">
+        <div class="voice_audio_xr" style="position:absolute;">
+            <input type="hidden" class="voice_urls" value="{{ voice_urls }}" />
+            <span class="voice_button"><img src="{{ MEDIA_URL }}/imgs/raidgashapon/common/voice_button.gif" style="width: 35px;height: 35px;" /></span>
+        </div>
+    </div>
+</div>
+<script>
+(function() {
+    $(function() {
+        var audio, idx;
+        idx = 0;
+        audio = null;
+        return $(".voice_audio_xr").on("click", function() {
+            var p, voice_url;
+            voice_urls = $(".voice_urls", this).val().split(",");
+            p = $(".voice_button", this);
+            if (!(audio != null)) {
+                audio = new Audio("");
+                audio.autoplay = false;
+                audio.src = voice_urls[idx];
+                $(audio).on("ended", function() {
+                    audio.src = voice_url;
+                });
+            }
+            if (audio.ended || audio.paused) {
+                audio.play();
+                document.getElementById('child-frame').contentWindow["playVoice" + (idx+1)]();
+                audio.addEventListener('ended', function(){
+                    delete audio;
+                    audio = null;
+                    idx++;
+                    if (idx >= voice_urls.length) {
+                        idx = 0;
+                    }
+                    return p.css({
+                        opacity: 0.9
+                    }).removeClass("button-mono");
+                });
+                return p.css({
+                    opacity: 0.7
+                }).addClass("button-mono");
+            }
+        });
+    });
+}).call(this);
+</script>
+<style>
+    .button-mono {
+        -webkit-filter: grayscale(100%);
+    }
+</style>

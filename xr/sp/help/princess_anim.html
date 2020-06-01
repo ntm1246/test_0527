@@ -1,0 +1,40 @@
+{% extends 'common/base.html' %}
+{% block content %}
+
+    {# ■ 追加css ■ #}
+    {% include "help/header.html" %}
+
+
+    {# ■ 設定値 ■ #}
+    {% define %}
+        inline_height=570,
+        inline_button_height=550,   {# inline_height - 30 の値をｾｯﾄ #}
+    {% enddefine %}
+
+    {# ■ カード表示 ■ #}
+    <section class="frame--img-crown mt10 bg-color--basic">
+        {# ■ タイトルテキストver ■ #}
+        <div class="frame__h2--red center _mt10">
+            新姫紹介
+        </div>
+
+
+        {# ■ 新姫カード一覧 ■ #}
+        {% for card in choice_cards %}
+            <div class="center">
+                {% include './partial/card_profile_anim_show.html' with showtype="large2" %}
+            </div>
+        {% endfor %}
+    </section>
+    
+    {# ■ リンク ■ #}
+    <ul class="side-nav mt10">
+        <li class="side-nav__parts--prev">
+            <a href="{% opensocial_url mobile_root_index %}">ﾏｲﾍﾞｯﾄﾞへ戻る</a>
+        </li>
+    </ul>
+
+
+    <script src="{{ MEDIA_URL }}/js/banner_viewer.js?20140624122656" type="text/javascript"></script>
+
+{% endblock %}

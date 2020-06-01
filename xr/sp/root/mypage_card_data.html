@@ -1,0 +1,71 @@
+
+    {# ▼キャラクターの表示＆セリフ #}
+    <div class="top_princess_image">
+        {% for player_card in player_card_front_list %}
+            {% if player_card.rarity >= 19 %}
+                <img src="{{ MEDIA_URL }}/imgs/card/miyabiEffect/Loading.jpg" width="320" height="400" style="border: 1px;position:absolute; top:0px; " id="dummy">
+                <iframe src="{% opensocial_url xr_anim player_card.card_id %}" width="320" height="400" style="border: 1px;display:none;" id="child-frame"></iframe>
+                {% voice_miyabi_mybed player_card.profile_comment %}
+                <script>
+                    $('#child-frame').load(function(){
+                        $('#child-frame').fadeIn(1000);
+                        $('#dummy').fadeOut(500);
+                    });
+                </script>
+            {% else %}
+            <div>
+                <img src="{{ player_card.image_url.large }}" class="ps_a" {% if player_card.card.flag_is_reverse %}style="top:-165px;"{% endif %} />
+            </div>
+            {% endif %}
+        {% comment %}
+            <div id="chara_area{{ forloop.counter }}" class="chara_area" style="display:none;">
+                <img src="{{ player_card.image_url.large }}" class="ps_a" {% if player_card.card.flag_is_reverse %}style="top:-165px;"{% endif %} />
+                {# 新着情報の位置を安定させるためにrelativeのdivでくくる #}
+                    {% voice_single player_card.card.detail.get_greet_comment_with_voice root/partial/voice_comment_mypage.html %}
+                <div class="princess_comment_my_icon2 inline_block"><img src="{{MEDIA_URL}}/imgs/root/btn_card.png" width="25" onclick="javascript:viewInfoTogle();"/></div>
+                <div></div>
+            </div>
+
+            <div id="chara_info{{ forloop.counter }}" class="chara_info" style="display:none;">
+
+                <div class="pb3 left bold" style="font-size:12px;">
+                    <span class="element_{{ player_card.card.element_obj.id }}">{{ player_card.card.element_obj.name }}</span>&nbsp;
+                            {{ player_card.card.name }}&nbsp;
+                    <span class="color_light_yellow">({{ player_card.card.rarity_obj.name}})</span>
+                </div>
+
+
+                <table class="new_my_page_data" style="margin-left: auto;margin-right: auto; width: 100%;">
+
+                <tr>
+                    <th>{{T.CARD_LEVEL}}</th><td>{{ player_card.level }}/{{ player_card.card.max_level}}</td>
+                    <th style="font-size: 10px;">{{T.CARD_NEED_COST}}</th><td>{{ player_card.require_magic }}</td>
+                </tr>
+                <tr>
+                    <th style="font-size: 10px;">{{T.CARD_FAMILY}}</th><td>{{ player_card.card.family_obj.name }}</td>
+                    <th style="font-size: 10px;">{{T.CARD_RACE}}</th><td>{{ player_card.card.race_obj.name }}</td>
+                </tr>
+                <tr>
+                    <th style="font-size: 10px;">{{T.CARD_ATTACK_SHORT}}</th>
+                    <td>{{ player_card.attack }}</td>
+                    <th style="font-size: 10px;">{{T.CARD_DEFENSE_SHORT }}</th>
+                    <td>{{ player_card.defense }}</td>
+                </tr>
+                <tr>
+                    <th style="font-size: 10px;">{{T.CARD_LOVE}}</th><td colspan="3">{{ player_card.love }}&nbsp;/&nbsp;{{ player_card.card.max_love }}&nbsp;&nbsp;&nbsp;{% card_love_image player_card %}</td>
+                </tr>
+                <tr>
+                    <th style="font-size: 10px;">{{T.CARD_EXPERIENCE}}</th>
+                    <td colspan="3"><span class="inline_block">{{ player_card.growth_percent }}&nbsp;%</span>&nbsp;&nbsp;
+                            <div class="inline_table" style="vertical-align:middle">
+                                <div class="tar_back_min" style="background-image: url({{MEDIA_URL}}/imgs/gauge/purple_back.png);">
+                                    <p class="purple" style="width: {{ player_card.growth_percent }}%">&nbsp;</p>
+                                </div>
+                            </div>
+                    </td>
+                </tr>
+                </table>
+            </div>
+        {% endcomment %}
+        {% endfor %}
+    </div>

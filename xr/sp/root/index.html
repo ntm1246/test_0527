@@ -1,0 +1,401 @@
+{% extends 'common/base.html' %}
+{# {% load player_extra menu_extra guild_extra %} #}
+{% load player_extra dotmoney_tags pero_tags %}
+{% block stylecss %}
+<link href="{{MEDIA_URL}}/css/mypage_new.css?20200320155015" rel="stylesheet" type="text/css">
+{% endblock %}
+
+{% block header_menu %}
+{% endblock %}
+
+
+{% block content %}
+
+
+
+
+
+
+
+    {#  クリック後表示メニュー #}
+    {% include "root/partial/mypage_menu_header.html" %}
+
+    <script>
+        var view_chara_num = {{ player_card_front_list|length }};
+    </script>
+    <script src="{{MEDIA_URL}}/js/mypage.js?20130619114447"></script>
+    <script src="{{MEDIA_URL}}/js/coffee/new_princess_voice.js?20160229120000"></script>
+
+    {# 新着情報通知 #}
+    {% include "root/partial/mypage_new_data.html" %}
+
+<div class="new_header_my_base">
+
+    {# マイページヘッダー #}
+    <section class="new_header_btn_base_school">
+        <div class="new_header_left">
+            <a href="{% opensocial_url mobile_root_index %}">
+                {# マイページへのリンク画像 #}
+                <img src="{{MEDIA_URL}}/imgs/root/btn_mypage_{{ player.element_obj.id }}.png" width="55" height="55" />
+            </a>
+        </div>
+        <div class="new_header_right right">
+            <a class="other" id="hide-menu-click" onclick="javascript:newhideMenu.showHideMenu()">
+                {# メニュー表示用のリンク画像 #}
+                <img src="{{MEDIA_URL}}/imgs/root/btn_menu.png?ddi=2" width="55" height="55" />
+            </a>
+        </div>
+    </section>
+
+
+    {# ギル度系情報表示 #}
+    {% include './root/partial/mypage_guild_data.html' %}
+
+    {# カード画像表示 キャラクターの表示＆セリフ #}
+    {% include './root/partial/mypage_card_data.html' %}
+
+    {# ピクリンナビゲーション #}
+    {% include './root/partial/mypage_guide_navigation.html' %}
+
+    {# 交換所 #}
+    {% include "root/partial/mypage_exchangebooth.html" %}
+
+    {# voiceボタン #}
+    {% ifnotequal mybed_card_voice|slice:"-8:" "None.mp4" %}
+    {% if player_card_front_list.0.rarity < 19 %}
+    {% include './root/partial/mypage_button_voice.html' %}
+    {% endif %}
+    {% endifnotequal %}
+
+    {# マイページメインボタン #}
+    {% include './root/partial/mypage_button_main.html' %}
+
+
+    {# ﾚｲﾄﾞﾎﾞｽとの遭遇状況などアイコン #}
+    {% include './root/partial/mypage_event_data.html' %}
+
+</div>
+
+    {% if settings.IS_MOBCAST %}
+    <div class="center mtb5">
+        <button class="text_banner">
+            <a href="{% opensocial_url notification_detail_id 77 %}"><span style="color:#ff0000">【重要】ｻｰﾋﾞｽ終了のお知らせ</span></a>
+        </button>
+    </div>
+    {% endif %}
+
+    {# バナー表示 トップ #}
+    {% for banner in banners_top %}
+        <div class="center mtb5">
+            {{ banner }}
+        </div>
+    {% endfor %}
+
+    {# バナー表示 真ん中 #}
+    {% for banner in banners_mid %}
+        <div class="center mtb5">
+            {{ banner }}
+        </div>
+    {% endfor %}
+
+    <div class="center mtb5">
+        <button class="text_banner">
+            <a href="{% opensocial_url root_end_event_list %}">
+                終了したｲﾍﾞﾝﾄの確認はこちら
+            </a>
+        </button>
+    </div>
+
+    {% if enable_dungeon %}
+        {# 曜日別ダンジョン #}
+        <div class="center mt5 toggle_div">
+            <a href="{% opensocial_url weekdungeon_index %}" class="block toggle_btn"><img src="{{MEDIA_URL}}/imgs/weekdungeon/{{ enable_dungeon.0.id }}/banner.jpg" style="width:100%;display:inline-block;"></a>
+        </div>
+
+        <div class="toggle_div center mt5" style="display: none;">
+            <img src="{{MEDIA_URL}}/imgs/weekdungeon/{{ enable_dungeon.0.id }}/banner.jpg" style="width:100%;display:inline-block;">
+        </div>
+    {% endif %}
+
+
+    {# プレイヤー情報 攻撃力・防御力表示 #}
+    {% include './root/partial/mypage_player_battle_data.html' %}
+
+
+
+    {# 下部バナー #}
+    <div class="center mtb10">
+        {% for banner in banners_btm %}
+            {{ banner }}
+            <div class="mt10"></div>
+        {% endfor %}
+    </div>
+
+
+
+{% if banners_slide %}
+    <script>
+        $(function(){
+            $('#mainImages #campaignTitle').click(function() {
+                $(this).children('span').toggleClass('open');
+                if ($(this).children('span').hasClass('open')) {
+                    $('#campaignTitle').css('height', '43px');
+                    $('#accordionIcon').css('-webkit-transform', 'rotate(90deg)')
+                            .css('transform', 'rotate(90deg)')
+                            .css('top', '3px');
+                }
+                $(this).next('ul').slideToggle("normal", function(){
+                    if (!$('#campaignTitle').children('span').hasClass('open')) {
+                        $('#campaignTitle').css('height', '33px');
+                        $('#accordionIcon').css('-webkit-transform', 'rotate(-90deg)')
+                                .css('transform', 'rotate(-90deg)')
+                                .css('top', '13px');
+                    }
+                });
+            });
+        });
+    </script>
+
+    <style>
+        .slide_banner{
+            position: relative;
+        }
+    .slide_banner li{
+        width: 155px;
+        float: left;
+    }
+    .slide_banner li .banner_area{
+        min-height: 28px;
+        margin-top: 3px;
+        margin-bottom: 3px;
+        vertical-align: middle;
+        text-align: center;
+    }
+    .slide_banner:after, .slide_banner li:nth-child(2n+1){
+        content: '';
+        display: block;
+        clear: both;
+    }
+    #campaignTitle{
+        width: 310px;
+        height: 33px;
+        color: #ffff00;
+        position: relative;
+        overflow: hidden;
+    }
+    #accordionIcon{
+        position: absolute;
+        width: 29px;
+        height: 19px;
+        top: 13px;
+        right: 15px;
+        -webkit-transform: rotate(-90deg);
+        transform: rotate(-90deg);
+    }
+    </style>
+
+    <section class="frame--img bg-color--basic ms5" id="mainImages">
+        <h2 class="center frame__h1--red" id="campaignTitle">
+            <img src="{{MEDIA_URL}}/imgs/common/point/yajirusi4.png" id="accordionIcon">
+            <span>
+            ｷｬﾝﾍﾟｰﾝ情報
+            </span>
+        </h2>
+        <ul style="display: none;" class="slide_banner">
+            {% for banner in banners_slide %}
+                <li>
+                    <div class="banner_area">
+                        {{ banner }}
+                    </div>
+                </li>
+            {% endfor %}
+
+            {% if not settings.IS_COLOPL and not settings.IS_MIXI and not settings.IS_AMEBA %}
+
+                <li>
+                    <div class="banner_area">
+                        <a href="{% opensocial_url sharecomment_index %}">
+                            <img src="{{MEDIA_URL}}/imgs/common/banner/sharecomment_300x60.gif" width="150" style="min-height: 27px;">
+                        </a>
+                    </div>
+                </li>
+                {% if not settings.IS_MBGA %}
+                <li>
+                    <div class="banner_area">
+                        <a href="{% opensocial_url community_index %}">
+                            <img src="{{MEDIA_URL}}/imgs/common/banner/community_join_300x60.gif" width="150" style="min-height: 27px;">
+                        </a>
+                    </div>
+                </li>
+                {% endif %}
+            {% endif %}
+        </ul>
+
+    </section>
+{% endif %}
+
+    {% if settings.IS_COLOPL %}
+        {# コロプラ位置情報バナー #}
+        <div class="center mtb10 toggle_div">
+            <a href="{% opensocial_url location_index %}" class="block toggle_btn">
+                <img src="{{MEDIA_URL}}/imgs/location/banner.gif?v=1" style="width:290px;height:55px;" />
+            </a>
+        </div>
+    {% endif %}
+
+    {# 固定：キャンペーンなどの情報 #}
+    {# ひと言コメントとキャンペーンのボタン追加  #}
+    {% include './root/partial/mypage_campaign_fixation.html' %}
+
+    {# 新着情報リスト表示 #}
+    {% include './root/partial/mypage_new_data_list.html' %}
+
+
+    {# 攻撃履歴表示 #}
+    {% include './root/partial/mypage_battle_history.html' %}
+
+    {# ハグ履歴表示 #}
+    {% include './root/partial/mypage_greet.html' %}
+
+    {# 運営の告知 #}
+    {% comment %}{% include './root/partial/mypage_announcement.html' %}{% endcomment %}
+    {% include './root/partial/notification.html' %}
+   
+    {% if settings.IS_AMEBA and dotmoney_stat %}
+        {# ドットマネー #}
+        {% dotmoney_stat dotmoney_stat %}
+    {% endif %}
+
+    {% if settings.IS_MOBCAST %}
+        {# ドットマネー #}
+        {% pero_stat pero_stat %}
+    {% endif %}
+
+    {# フッターメニュー  #}
+    {% include './root/partial/mypage_menu_footer.html' %}
+
+
+    <hr class="line--basic" />
+
+    <section class="mb15 center">
+    <h2 class="p5 font13">自己紹介タグ</h2>
+        <form class="center">
+            <input type="text" name="myprofile_tag" value='{{ myprofile_tag }}' class="wp80" onclick="this.focus();this.select()" />
+        </form>
+
+        {% if not settings.IS_MOBCAST %}
+        <div class="m20">
+            <a href="{{ settings.COMMUNITY_URL }}" class="back_button1" target="_top">{% if not settings.IS_COLOPL and not settings.IS_MIXI and not settings.IS_AMEBA %}公式{% endif %}{{ T.SOCIAL_COMMUNITY }}へ!</a>
+        </div>
+        {% endif %}
+        {% if settings.IS_GREE %}
+        <div class="m20">
+            <a href="{% opensocial_url root_zoning_index %}" class="back_button1" target="_top">青少年保護について</a>
+        </div>
+        {% endif %}
+    </section>
+
+    <div class="back_link4">
+        <a href="{% opensocial_url application_ban %}" class="back_link3">禁止行為に関するお知らせ</a>
+    </div>
+
+    {# ブックマークおすすめ  #}
+    {% include './root/partial/mypage_bookmark.html' %}
+
+
+<script>
+var flg_close2 = false;
+ {% if not settings.IS_COLOPL and not settings.IS_MIXI and not settings.IS_AMEBA and not settings.IS_MOBCAST %}
+function close_bookmark2(){
+    flg_close2 = true;
+    document.getElementById("bookmark_window").style.display = "none";
+    $.ajax({
+        async: true,
+        cache: false,
+        url : "{% opensocial_url bookmark_close %}",
+        type : "GET",
+        success : function(data, status, xhr) {
+        },
+    });
+}
+function close_bookmark(){
+    if (!flg_close2){
+        document.getElementById("bookmark_window").style.display = "none";
+    }
+}
+{% endif %}
+
+function setMsg(){
+    var msg_txt = document.getElementById("bookmark_txt");
+    msg_txt.innerHTML = "";
+
+    var msg;
+    msg = document.createElement('div');
+    //  msg.className = 'str';
+    msg.innerHTML = show_txt;
+    msg_txt.appendChild(msg);
+
+}
+ {% if not settings.IS_COLOPL and not settings.IS_MIXI and not settings.IS_AMEBA and not IS_MOBCAST %}
+
+function view_bookmark(){
+    var flag = false;
+    {% if is_bookmark_close %}
+        flag = true;
+    {% else %}
+        flag = false;
+    {% endif %}
+
+    var ua = navigator.userAgent;
+    var userType = 0;
+    if (ua.indexOf("Android 2") > 0) userType = 0;
+    if (ua.indexOf("Android 4") > 0) userType = 0;
+    if (ua.indexOf("iPhone OS 4") > 0) userType = 1;
+    if (ua.indexOf("iPhone OS 5") > 0) userType = 1;
+    if (ua.indexOf("iPhone OS 6") > 0) userType = 2;
+    if (ua.indexOf("iPhone OS 7") > 0) userType = 2;
+
+    if(!userType){
+        flag = true;
+    }
+
+    if (!flag){
+        document.getElementById("bookmark_window").style.display = "block";
+        var text = document.getElementById("close-text");
+        text.addEventListener("touchstart", function(e){
+            flg_close2 = true;
+            setTimeout("close_bookmark2()",0);
+        }, false);
+        var window = document.getElementById("bookmark_window");
+        window.addEventListener("touchstart", function(e){
+            flg_close2 = false;
+            setTimeout("close_bookmark()", 300);
+        }, false);
+    }
+}
+var show_txt = "";
+window.onload=view_bookmark();
+{% endif %}
+
+</script>
+<script src="{{MEDIA_URL}}/js/coffee/mypage_voice.js?20130619114447"></script>
+
+<script>
+window.onload=function(){
+    charaAreaInit(); //キャラ表示部初期化
+    view_bookmark(); //ブックマーク系表示
+}
+</script>
+
+
+<script src="{{ MEDIA_URL }}/js/event_common.js?2017042720006" type="text/javascript"></script>
+
+
+{# GREE成果タグの表示 #}
+{% if ad_params %}
+    {% if ad_params.is_product %}
+        <img src ="https://reward.developer.gree.co.jp/wt/a?cid={{ settings.GREEAD_LOGIN_CAMPAIGN_ID }}&ad={{ settings.GREEAD_LOGIN_ADVERTISEMENT }}&uid={{ ad_params.sha256_osuser_id }}&digest={{ ad_params.digest }}" width="1" height="1">
+    {% endif %}
+{% endif %}
+
+{% endblock %}

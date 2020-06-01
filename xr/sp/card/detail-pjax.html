@@ -1,0 +1,80 @@
+{% pjaxviaproxy %}
+    {% with player_card as detail_card %}
+    {% if settings.IS_ABILITY_INHERIT %}
+        {% include 'fusion/large_card.html' with show_remove_skill=1 %}
+    {% else %}
+        {% include 'fusion/large_card.html' with show_remove_skill=0 %}
+    {% endif %}
+    {#{% include 'card/player_card_detail.html' with show_remove_skill=1 %}#}
+
+    {% include 'partial/section_title.html' with title="LvMAXで"|add:T.MATERIAL_CREATE|add:"される"|add:T.MATERIAL class="page_title mt10" %}
+    {% if player_card.material_awake_history %}
+    <div class="center m10">
+    
+    {% for awake_history in player_card.material_awake_history %}
+       {% if forloop.counter <= 4 %}
+           {% if awake_history.created_at %}
+                <div class="inline_block" style="width:25%;vertical-align: top">
+               {# 生成済み #}
+               <img src="{{ awake_history.material.image_url.medium }}" width="45" /><br />
+               {{ awake_history.material.name }}
+               </div>
+           {% else %}
+               <div class="inline_block" style="width:25%;vertical-align: top">
+               <img src="{{ MEDIA_URL }}/imgs/material/create/{{ forloop.counter}}/90x90.gif" width="45" /><br />
+               未生成
+               </div>
+           {% endif %}
+        {% endif %}
+    {% endfor %}
+    </div>
+    {% else %}
+        <div class="m10 center bold">
+            {{T.MATERIAL}}を{{T.MATERIAL_CREATE }}しません
+        </div>
+    {% endif %}
+
+    <div class="right mt10">
+        {% if player_card.flag_use_leader_card %}
+        <div class="back_link0">
+            <div class="back_link5">リーダーです</div>
+            </div>
+        {% elif player_card.flag_use_deck %}
+            <span class="color_orange">{{ T.CARD_DECK }}ﾒﾝﾊﾞｰに設定されているためﾘｰﾀﾞｰにできません｡</span><br />
+        {% else %}
+            <div class="back_link0"><a href="{% opensocial_url card_set_leader detail_card.id %}" class="back_link">ﾘｰﾀﾞｰにする</a></div>
+        {% endif %}
+        {% if player_card.card.special_comment %}
+            <div class="back_link0"><a href="{% opensocial_url vote_card_detail detail_card.card_id %}" class="back_link">この{{ T.CARD }}に投票する</a></div>
+        {% endif %}
+        {% if buildup_view %}
+            {% if player_card.flag_use_rental_card %}
+                <div class="back_link0"><a href="{% opensocial_url buildup_selection_base player_card.id %}" class="back_link">この{{T.CARD}}を{{ T.COMPOSITION_VERB }}</a></div>
+                <span class="color_gray">この{{T.CARD}}を{{ T.FUSION_VERB }}</span><br />
+            {% else %}
+                <div class="back_link0"><a href="{% opensocial_url buildup_selection_base player_card.id %}" class="back_link">この{{T.CARD}}を{{ T.COMPOSITION_VERB }}</a></div>
+                {% if player_card.card.flag_is_final_fusion %}
+                <div class="back_link0">
+                    <div class="back_link5">最終昇天済です</div>
+                </div>
+                {% else %}
+                <div class="back_link0"><a href="{% opensocial_url card_fusion_selection_base player_card.id %}" class="back_link">この{{T.CARD}}を{{ T.FUSION_VERB }}</a></div>
+                {% endif %}
+            {% endif %}
+        {% endif %}
+        {% if not player_card.flag_use_leader_card and not player_card.flag_use_rental_card %}
+        <div class="back_link0"><a href="{% opensocial_url card_sale_confirm_individual detail_card.id %}" class="back_link">{{T.SELL}}させる</a></div>
+        {% endif %}
+        <div class="back_link0"><a href="{% opensocial_url wish_execution settings.ENTITY_TYPE_CARD player_card.card_id %}" class="back_link">{{ T.WISHLIST }}に登録</a></div>
+        <div class="back_link0"><a href="{% opensocial_url archive_from_playercard player_card.id %}"class="back_link">図鑑を見る</a></div>
+
+    {# マテリアル装備のリンク #}
+	<div class="back_link0"><a href="{% opensocial_url material_slot_list player_card.id %}"class="back_link">{{T.MATERIAL}}を{{T.MATERIAL_ATTACH}}する</a></div>
+  </div>
+
+  {% endwith %}
+
+<div class="back_link0 right">
+<a href="{% opensocial_url card_index %}" class="back_link">{{ T.CARD }}一覧に戻る</a>
+</div>
+{% endpjaxviaproxy %}

@@ -1,0 +1,1279 @@
+<!DOCTYPE html>
+<!--
+	NOTES:
+	1. All tokens are represented by '$' sign in the template.
+	2. You can write your code only wherever mentioned.
+	3. All occurrences of existing tokens will be replaced by their appropriate values.
+	4. Blank lines will be removed automatically.
+	5. Remove unnecessary comments before creating your template.
+-->
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="authoring-tool" content="Adobe_Animate_CC">
+<title>main</title>
+<!-- write your code here -->
+<style>
+  #animation_container {
+	position:absolute;
+	margin:auto;
+	left:0;right:0;
+	top:0;bottom:0;
+  }
+</style>
+<script src="https://code.createjs.com/1.0.0/createjs.min.js"></script>
+<script>
+(function (cjs, an) {
+var p; // shortcut to reference prototypes
+var lib={};var ss={};var img={};
+lib.ssMetadata = [
+		{name:"main_atlas_", frames: [[0,0,640,800],[0,802,640,800],[642,0,640,800],[1284,0,640,800],[642,802,640,800],[1284,802,640,800]]},
+		{name:"main_atlas_2", frames: [[0,0,640,800],[0,802,640,800],[642,0,640,800],[1284,0,640,800],[642,802,640,800],[1284,802,640,800]]},
+		{name:"main_atlas_3", frames: [[1926,138,53,83],[1926,0,90,64],[1981,138,60,51],[1981,191,61,29],[1926,66,75,70],[0,0,640,800],[0,802,640,800],[642,0,640,800],[1284,0,640,800],[642,802,640,800],[1284,802,640,800]]}
+];
+// symbols:
+(lib.hana1 = function() {
+	this.initialize(ss["main_atlas_3"]);
+	this.gotoAndStop(0);
+}).prototype = p = new cjs.Sprite();
+(lib.hana2 = function() {
+	this.initialize(ss["main_atlas_3"]);
+	this.gotoAndStop(1);
+}).prototype = p = new cjs.Sprite();
+(lib.hana_B1 = function() {
+	this.initialize(ss["main_atlas_3"]);
+	this.gotoAndStop(2);
+}).prototype = p = new cjs.Sprite();
+(lib.hana_B2 = function() {
+	this.initialize(ss["main_atlas_3"]);
+	this.gotoAndStop(3);
+}).prototype = p = new cjs.Sprite();
+(lib.hana_B3 = function() {
+	this.initialize(ss["main_atlas_3"]);
+	this.gotoAndStop(4);
+}).prototype = p = new cjs.Sprite();
+(lib.エフェクト_1 = function() {
+	this.initialize(ss["main_atlas_"]);
+	this.gotoAndStop(0);
+}).prototype = p = new cjs.Sprite();
+(lib.エフェクト_2 = function() {
+	this.initialize(ss["main_atlas_"]);
+	this.gotoAndStop(1);
+}).prototype = p = new cjs.Sprite();
+(lib.エフェクト_3 = function() {
+	this.initialize(ss["main_atlas_"]);
+	this.gotoAndStop(2);
+}).prototype = p = new cjs.Sprite();
+(lib.エフェクト_4 = function() {
+	this.initialize(ss["main_atlas_"]);
+	this.gotoAndStop(3);
+}).prototype = p = new cjs.Sprite();
+(lib.キャラ = function() {
+	this.initialize(ss["main_atlas_"]);
+	this.gotoAndStop(4);
+}).prototype = p = new cjs.Sprite();
+(lib.タイプ_情熱 = function() {
+	this.initialize(ss["main_atlas_"]);
+	this.gotoAndStop(5);
+}).prototype = p = new cjs.Sprite();
+(lib.背景 = function() {
+	this.initialize(ss["main_atlas_2"]);
+	this.gotoAndStop(0);
+}).prototype = p = new cjs.Sprite();
+(lib.フレア = function() {
+	this.initialize(ss["main_atlas_2"]);
+	this.gotoAndStop(1);
+}).prototype = p = new cjs.Sprite();
+(lib.口_1 = function() {
+	this.initialize(ss["main_atlas_2"]);
+	this.gotoAndStop(2);
+}).prototype = p = new cjs.Sprite();
+(lib.口_2 = function() {
+	this.initialize(ss["main_atlas_2"]);
+	this.gotoAndStop(3);
+}).prototype = p = new cjs.Sprite();
+(lib.口_3 = function() {
+	this.initialize(ss["main_atlas_2"]);
+	this.gotoAndStop(4);
+}).prototype = p = new cjs.Sprite();
+(lib.枠 = function() {
+	this.initialize(ss["main_atlas_2"]);
+	this.gotoAndStop(5);
+}).prototype = p = new cjs.Sprite();
+(lib.枠エフェクト_1 = function() {
+	this.initialize(ss["main_atlas_3"]);
+	this.gotoAndStop(5);
+}).prototype = p = new cjs.Sprite();
+(lib.枠エフェクト_2 = function() {
+	this.initialize(ss["main_atlas_3"]);
+	this.gotoAndStop(6);
+}).prototype = p = new cjs.Sprite();
+(lib.枠エフェクト_3 = function() {
+	this.initialize(ss["main_atlas_3"]);
+	this.gotoAndStop(7);
+}).prototype = p = new cjs.Sprite();
+(lib.目_1 = function() {
+	this.initialize(ss["main_atlas_3"]);
+	this.gotoAndStop(8);
+}).prototype = p = new cjs.Sprite();
+(lib.目_2 = function() {
+	this.initialize(ss["main_atlas_3"]);
+	this.gotoAndStop(9);
+}).prototype = p = new cjs.Sprite();
+(lib.目_3 = function() {
+	this.initialize(ss["main_atlas_3"]);
+	this.gotoAndStop(10);
+}).prototype = p = new cjs.Sprite();
+// helper functions:
+function mc_symbol_clone() {
+	var clone = this._cloneProps(new this.constructor(this.mode, this.startPosition, this.loop));
+	clone.gotoAndStop(this.currentFrame);
+	clone.paused = this.paused;
+	clone.framerate = this.framerate;
+	return clone;
+}
+function getMCSymbolPrototype(symbol, nominalBounds, frameBounds) {
+	var prototype = cjs.extend(symbol, cjs.MovieClip);
+	prototype.clone = mc_symbol_clone;
+	prototype.nominalBounds = nominalBounds;
+	prototype.frameBounds = frameBounds;
+	return prototype;
+	}
+(lib.フレア_1 = function(mode,startPosition,loop) {
+	this.initialize(mode,startPosition,loop,{});
+	// レイヤー_1
+	this.instance = new lib.フレア();
+	this.timeline.addTween(cjs.Tween.get(this.instance).wait(1));
+	this._renderFirstFrame();
+}).prototype = getMCSymbolPrototype(lib.フレア_1, new cjs.Rectangle(0,0,640,800), null);
+(lib.シンボル11 = function(mode,startPosition,loop) {
+	this.initialize(mode,startPosition,loop,{});
+	// timeline functions:
+	this.frame_0 = function() {
+		//this.visible=false;
+		// 乱数z
+		this.z =  Math.random();
+		//console.log(z);
+		// 落下速度
+		this.i = 1 + this.z * 0.85;
+		// 大きさ
+		this.scl = 0.3 + this.z * 0.3;
+		this.scaleX = this.scaleY = this.scl;
+		// 移動値
+		this.x = -70 + Math.random() * movieWidth;
+		this.xo = this.x;
+		this.y = -5 - Math.random() * movieHeight;
+		//this.skewX = Math.random() * 90;
+		this.sx = Math.random() * 0.7;
+		//this.skewY = Math.random() * 90;
+		this.sy = Math.random() * 1.2;
+		// 最初の角度
+		this.rr = Math.random() * 12 * 30;
+		this.rotation = this.rr;
+		// 回転する角度
+		this.rrr = (Math.random() * 3 + 1) * 3;
+		this.rrrr = Math.random() * 4 + 1 - 2;
+		// x座標は振り子運動
+		this.xr = Math.random() * 100;
+	}
+	this.frame_1 = function() {
+		//this.x += rrrr;
+		xt = this.x;
+		xs = 0.5 * Math.cos(this.xr * (Math.PI / 100));
+		this.x += xs + xTilt;
+		this.xr += 5;
+		this.y += this.i * 2;
+		this.skewY += this.sy;
+		if(this.skewY > 360){
+			this.skewY -= 360;
+		} else if((this.skewY > 80 && this.skewY < 100) || (this.skewY > 260 && this.skewY < 280)){
+			this.skewY += this.sy * 7.5;
+		}
+		this.skewX += this.sx;
+		if(this.skewX > 360){
+			this.skewX -= 360;
+		} else if(this.skewX > 80 && this.skewX < 100 || (this.skewX > 260 && this.skewX < 280)){
+			this.skewX += this.sx * 7.5;
+		}
+		if (this.rotation > 360)
+		{
+			this.rotation = 0;
+		}
+		if (this.z < rotateRatio) {
+			this.rotation += this.rrr;
+		}
+		this.scaleX = this.scaleY = this.scl;
+		//特定のエリアを避ける
+		if(false && this.x >= avoidStartX && this.x <= avoidEndX 
+			&& this.y >= avoidStartY && this.y <= avoidEndY){
+			if (this.x < (avoidEndX + avoidStartX) / 2){
+				this.x = xt + xs - xTilt;
+			} else {
+				this.x = xt + xs + xTilt;
+			}
+			this.xo = this.x;
+		}
+		// 外に出たら戻す
+		if (this.y >= movieHeight + 10)
+		{
+			this.x = -70 + Math.random() * movieWidth;	
+			this.y = 5 - movieHeight;
+		}   
+		if ((this.x >= movieWidth + 10) || (this.x <= -70))
+		{
+			this.x = -70 + Math.random() * movieWidth;
+			this.y = -5;
+		}
+	}
+	this.frame_2 = function() {
+		this.gotoAndPlay(1);
+	}
+	// actions tween:
+	this.timeline.addTween(cjs.Tween.get(this).call(this.frame_0).wait(1).call(this.frame_1).wait(1).call(this.frame_2).wait(1));
+	// レイヤー_1
+	this.instance = new lib.hana_B2();
+	this.timeline.addTween(cjs.Tween.get(this.instance).wait(3));
+	this._renderFirstFrame();
+}).prototype = p = new cjs.MovieClip();
+p.nominalBounds = new cjs.Rectangle(0,0,61,29);
+(lib.シンボル10 = function(mode,startPosition,loop) {
+	this.initialize(mode,startPosition,loop,{});
+	// timeline functions:
+	this.frame_0 = function() {
+		//this.visible=false;
+		// 乱数z
+		this.z =  Math.random();
+		//console.log(z);
+		// 落下速度
+		this.i = 1 + this.z * 0.85;
+		// 大きさ
+		this.scl = 0.3 + this.z * 0.3;
+		this.scaleX = this.scaleY = this.scl;
+		// 移動値
+		this.x = -70 + Math.random() * movieWidth;
+		this.xo = this.x;
+		this.y = -5 - Math.random() * movieHeight;
+		//this.skewX = Math.random() * 90;
+		this.sx = Math.random() * 0.7;
+		//this.skewY = Math.random() * 90;
+		this.sy = Math.random() * 1.2;
+		// 最初の角度
+		this.rr = Math.random() * 12 * 30;
+		this.rotation = this.rr;
+		// 回転する角度
+		this.rrr = (Math.random() * 3 + 1) * 3;
+		this.rrrr = Math.random() * 4 + 1 - 2;
+		// x座標は振り子運動
+		this.xr = Math.random() * 100;
+	}
+	this.frame_1 = function() {
+		//this.x += rrrr;
+		xt = this.x;
+		xs = 0.5 * Math.cos(this.xr * (Math.PI / 100));
+		this.x += xs + xTilt;
+		this.xr += 5;
+		this.y += this.i * 2;
+		this.skewY += this.sy;
+		if(this.skewY > 360){
+			this.skewY -= 360;
+		} else if((this.skewY > 80 && this.skewY < 100) || (this.skewY > 260 && this.skewY < 280)){
+			this.skewY += this.sy * 7.5;
+		}
+		this.skewX += this.sx;
+		if(this.skewX > 360){
+			this.skewX -= 360;
+		} else if(this.skewX > 80 && this.skewX < 100 || (this.skewX > 260 && this.skewX < 280)){
+			this.skewX += this.sx * 7.5;
+		}
+		if (this.rotation > 360)
+		{
+			this.rotation = 0;
+		}
+		if (this.z < rotateRatio) {
+			this.rotation += this.rrr;
+		}
+		this.scaleX = this.scaleY = this.scl;
+		//特定のエリアを避ける
+		if(false && this.x >= avoidStartX && this.x <= avoidEndX 
+			&& this.y >= avoidStartY && this.y <= avoidEndY){
+			if (this.x < (avoidEndX + avoidStartX) / 2){
+				this.x = xt + xs - xTilt;
+			} else {
+				this.x = xt + xs + xTilt;
+			}
+			this.xo = this.x;
+		}
+		// 外に出たら戻す
+		if (this.y >= movieHeight + 10)
+		{
+			this.x = -70 + Math.random() * movieWidth;	
+			this.y = 5 - movieHeight;
+		}   
+		if ((this.x >= movieWidth + 10) || (this.x <= -70))
+		{
+			this.x = -70 + Math.random() * movieWidth;
+			this.y = -5;
+		}
+	}
+	this.frame_2 = function() {
+		this.gotoAndPlay(1);
+	}
+	// actions tween:
+	this.timeline.addTween(cjs.Tween.get(this).call(this.frame_0).wait(1).call(this.frame_1).wait(1).call(this.frame_2).wait(1));
+	// レイヤー_1
+	this.instance = new lib.hana_B1();
+	this.timeline.addTween(cjs.Tween.get(this.instance).wait(3));
+	this._renderFirstFrame();
+}).prototype = p = new cjs.MovieClip();
+p.nominalBounds = new cjs.Rectangle(0,0,60,51);
+(lib.エフェクト_4_1 = function(mode,startPosition,loop) {
+	this.initialize(mode,startPosition,loop,{});
+	// レイヤー_1
+	this.instance = new lib.エフェクト_4();
+	this.timeline.addTween(cjs.Tween.get(this.instance).wait(1));
+	this._renderFirstFrame();
+}).prototype = getMCSymbolPrototype(lib.エフェクト_4_1, new cjs.Rectangle(0,0,640,800), null);
+(lib.エフェクト_3_1 = function(mode,startPosition,loop) {
+	this.initialize(mode,startPosition,loop,{});
+	// レイヤー_1
+	this.instance = new lib.エフェクト_3();
+	this.timeline.addTween(cjs.Tween.get(this.instance).wait(1));
+	this._renderFirstFrame();
+}).prototype = getMCSymbolPrototype(lib.エフェクト_3_1, new cjs.Rectangle(0,0,640,800), null);
+(lib.エフェクト_2_1 = function(mode,startPosition,loop) {
+	this.initialize(mode,startPosition,loop,{});
+	// レイヤー_1
+	this.instance = new lib.エフェクト_2();
+	this.timeline.addTween(cjs.Tween.get(this.instance).wait(1));
+	this._renderFirstFrame();
+}).prototype = getMCSymbolPrototype(lib.エフェクト_2_1, new cjs.Rectangle(0,0,640,800), null);
+(lib.エフェクト_1_1 = function(mode,startPosition,loop) {
+	this.initialize(mode,startPosition,loop,{});
+	// レイヤー_1
+	this.instance = new lib.エフェクト_1();
+	this.timeline.addTween(cjs.Tween.get(this.instance).wait(1));
+	this._renderFirstFrame();
+}).prototype = getMCSymbolPrototype(lib.エフェクト_1_1, new cjs.Rectangle(0,0,640,800), null);
+(lib.petalB3 = function(mode,startPosition,loop) {
+	this.initialize(mode,startPosition,loop,{});
+	// timeline functions:
+	this.frame_0 = function() {
+		this.visible=false;
+		// 乱数z
+		this.z =  Math.random();
+		//console.log(z);
+		// 落下速度
+		this.i = 1 + this.z * 0.85;
+		// 大きさ
+		this.scl = 0.4 + this.z * 0.8;
+		this.scaleX = this.scaleY = this.scl;
+		// 移動値
+		this.x = -50 + Math.random() * movieWidth;
+		this.xo = this.x;
+		this.y = -5 - Math.random() * movieHeight;
+		// 最初の角度
+		this.rr = Math.random() * 12 * 30;
+		this.rotation = this.rr;
+		// 回転する角度
+		this.rrr = (Math.random() * 3 + 1) * 2;
+		this.rrrr = Math.random() * 4 + 1 - 2;
+		// x座標は振り子運動
+		this.xr = Math.random() * 100;
+	}
+	this.frame_1 = function() {
+		//this.x += rrrr;
+		xt = this.x;
+		xs = 0.5 * Math.cos(this.xr * (Math.PI / 100));
+		this.x += xs + xTilt;
+		this.xr += 5;
+		this.y += this.i * 2;
+		if (this.rotation > 360)
+		{
+			this.rotation = 0;
+		}
+		if (this.z < rotateRatio) {
+			this.rotation += this.rrr;
+		}
+		this.scaleX = this.scaleY = this.scl;
+		//特定のエリアを避ける
+		if(this.x >= avoidStartX && this.x <= avoidEndX 
+			&& this.y >= avoidStartY && this.y <= avoidEndY){
+			if (this.x < (avoidEndX + avoidStartX) / 2){
+				this.x = xt + xs - xTilt;
+			} else {
+				this.x = xt + xs + xTilt;
+			}
+			this.xo = this.x;
+		}
+		// 外に出たら戻す
+		if (this.y >= movieHeight + 10)
+		{
+			this.y = 5 - movieHeight;
+		}   
+		if ((this.x >= movieWidth + 10) || (this.x <= -50))
+		{
+			this.x = -50 + Math.random() * movieWidth;
+			this.y = -5;
+		}
+	}
+	this.frame_2 = function() {
+		this.gotoAndPlay(1);
+	}
+	// actions tween:
+	this.timeline.addTween(cjs.Tween.get(this).call(this.frame_0).wait(1).call(this.frame_1).wait(1).call(this.frame_2).wait(1));
+	// レイヤー_1
+	this.instance = new lib.hana_B3();
+	this.instance.setTransform(0,0,0.4133,0.4286);
+	this.timeline.addTween(cjs.Tween.get(this.instance).wait(3));
+	this._renderFirstFrame();
+}).prototype = p = new cjs.MovieClip();
+p.nominalBounds = new cjs.Rectangle(0,0,31,30);
+(lib.petalB2 = function(mode,startPosition,loop) {
+	this.initialize(mode,startPosition,loop,{});
+	// timeline functions:
+	this.frame_0 = function() {
+		//this.visible=false;
+		// 乱数z
+		this.z =  Math.random();
+		//console.log(z);
+		// 落下速度
+		this.i = 1 + this.z * 0.85;
+		// 大きさ
+		this.scl = 0.6 + this.z * 0.6;
+		this.scaleX = this.scaleY = this.scl;
+		// 移動値
+		this.x = -70 + Math.random() * movieWidth;
+		this.xo = this.x;
+		this.y = -5 - Math.random() * movieHeight;
+		//this.skewX = Math.random() * 90;
+		this.sx = Math.random() * 0.7;
+		//this.skewY = Math.random() * 90;
+		this.sy = Math.random() * 1.2;
+		// 最初の角度
+		this.rr = Math.random() * 12 * 30;
+		this.rotation = this.rr;
+		// 回転する角度
+		this.rrr = (Math.random() * 3 + 1) * 3;
+		this.rrrr = Math.random() * 4 + 1 - 2;
+		// x座標は振り子運動
+		this.xr = Math.random() * 100;
+	}
+	this.frame_1 = function() {
+		//this.x += rrrr;
+		xt = this.x;
+		xs = 0.5 * Math.cos(this.xr * (Math.PI / 100));
+		this.x += xs + xTilt;
+		this.xr += 5;
+		this.y += this.i * 2;
+		//this.skewY += this.sy;
+		if(this.skewY > 360){
+			this.skewY -= 360;
+		} else if((this.skewY > 80 && this.skewY < 100) || (this.skewY > 260 && this.skewY < 280)){
+			this.skewY += this.sy * 7.5;
+		}
+		//this.skewX += this.sx;
+		if(this.skewX > 360){
+			this.skewX -= 360;
+		} else if(this.skewX > 80 && this.skewX < 100 || (this.skewX > 260 && this.skewX < 280)){
+			this.skewX += this.sx * 7.5;
+		}
+		if (this.rotation > 360)
+		{
+			this.rotation = 0;
+		}
+		if (this.z < rotateRatio) {
+			//this.rotation += this.rrr;
+		}
+		this.scaleX = this.scaleY = this.scl;
+		//特定のエリアを避ける
+		if(this.x >= avoidStartX && this.x <= avoidEndX 
+			&& this.y >= avoidStartY && this.y <= avoidEndY){
+			if (this.x < (avoidEndX + avoidStartX) / 2){
+				this.x = xt + xs - xTilt;
+			} else {
+				this.x = xt + xs + xTilt;
+			}
+			this.xo = this.x;
+		}
+		// 外に出たら戻す
+		if (this.y >= movieHeight + 10)
+		{
+			this.x = -70 + Math.random() * movieWidth;	
+			this.y = 5 - movieHeight;
+		}   
+		if ((this.x >= movieWidth + 10) || (this.x <= -70))
+		{
+			this.x = -70 + Math.random() * movieWidth;
+			this.y = -5;
+		}
+	}
+	this.frame_2 = function() {
+		this.gotoAndPlay(1);
+	}
+	// actions tween:
+	this.timeline.addTween(cjs.Tween.get(this).call(this.frame_0).wait(1).call(this.frame_1).wait(1).call(this.frame_2).wait(1));
+	// レイヤー_1
+	this.instance = new lib.hana_B2();
+	this.instance.setTransform(0,0,0.6393,1);
+	this.timeline.addTween(cjs.Tween.get(this.instance).wait(3));
+	this._renderFirstFrame();
+}).prototype = p = new cjs.MovieClip();
+p.nominalBounds = new cjs.Rectangle(0,0,39,29);
+(lib.petalB1 = function(mode,startPosition,loop) {
+	this.initialize(mode,startPosition,loop,{});
+	// timeline functions:
+	this.frame_0 = function() {
+		//this.visible=false;
+		// 乱数z
+		this.z =  Math.random();
+		//console.log(z);
+		// 落下速度
+		this.i = 1 + this.z * 0.85;
+		// 大きさ
+		this.scl = 0.6 + this.z * 0.6;
+		this.scaleX = this.scaleY = this.scl;
+		// 移動値
+		this.x = -70 + Math.random() * movieWidth;
+		this.xo = this.x;
+		this.y = -5 - Math.random() * movieHeight;
+		//this.skewX = Math.random() * 90;
+		//this.sx = Math.random() * 0.7;
+		//this.skewY = Math.random() * 90;
+		//this.sy = Math.random() * 1.2;
+		// 最初の角度
+		this.rr = Math.random() * 12 * 30;
+		this.rotation = this.rr;
+		// 回転する角度
+		this.rrr = (Math.random() * 3 + 1) * 3;
+		this.rrrr = Math.random() * 4 + 1 - 2;
+		// x座標は振り子運動
+		this.xr = Math.random() * 100;
+	}
+	this.frame_1 = function() {
+		//this.x += rrrr;
+		xt = this.x;
+		xs = 0.5 * Math.cos(this.xr * (Math.PI / 100));
+		this.x += xs + xTilt;
+		this.xr += 5;
+		this.y += this.i * 2;
+		//this.skewY += this.sy;
+		if(this.skewY > 360){
+			this.skewY -= 360;
+		} else if((this.skewY > 80 && this.skewY < 100) || (this.skewY > 260 && this.skewY < 280)){
+			this.skewY += this.sy * 7.5;
+		}
+		//this.skewX += this.sx;
+		if(this.skewX > 360){
+			this.skewX -= 360;
+		} else if(this.skewX > 80 && this.skewX < 100 || (this.skewX > 260 && this.skewX < 280)){
+			this.skewX += this.sx * 7.5;
+		}
+		if (this.rotation > 360)
+		{
+			this.rotation = 0;
+		}
+		if (this.z < rotateRatio) {
+			//this.rotation += this.rrr;
+		}
+		this.scaleX = this.scaleY = this.scl;
+		//特定のエリアを避ける
+		if(this.x >= avoidStartX && this.x <= avoidEndX 
+			&& this.y >= avoidStartY && this.y <= avoidEndY){
+			if (this.x < (avoidEndX + avoidStartX) / 2){
+				this.x = xt + xs - xTilt;
+			} else {
+				this.x = xt + xs + xTilt;
+			}
+			this.xo = this.x;
+		}
+		// 外に出たら戻す
+		if (this.y >= movieHeight + 10)
+		{
+			this.x = -70 + Math.random() * movieWidth;	
+			this.y = 5 - movieHeight;
+		}   
+		if ((this.x >= movieWidth + 10) || (this.x <= -70))
+		{
+			this.x = -70 + Math.random() * movieWidth;
+			this.y = -5;
+		}
+	}
+	this.frame_2 = function() {
+		this.gotoAndPlay(1);
+	}
+	// actions tween:
+	this.timeline.addTween(cjs.Tween.get(this).call(this.frame_0).wait(1).call(this.frame_1).wait(1).call(this.frame_2).wait(1));
+	// レイヤー_1
+	this.instance = new lib.hana_B1();
+	this.instance.setTransform(0,0,0.5667,0.4902);
+	this.timeline.addTween(cjs.Tween.get(this.instance).wait(3));
+	this._renderFirstFrame();
+}).prototype = p = new cjs.MovieClip();
+p.nominalBounds = new cjs.Rectangle(0,0,34,25);
+(lib.petalA2 = function(mode,startPosition,loop) {
+	this.initialize(mode,startPosition,loop,{});
+	// timeline functions:
+	this.frame_0 = function() {
+		this.visible=false;
+		// 乱数z
+		this.z =  Math.random();
+		//console.log(z);
+		// 落下速度
+		this.i = 1 + this.z * 0.85;
+		// 大きさ
+		this.scl = 0.4 + this.z * 0.8;
+		this.scaleX = this.scaleY = this.scl;
+		// 移動値
+		this.x = -50 + Math.random() * movieWidth;
+		this.xo = this.x;
+		this.y = -5 - Math.random() * movieHeight;
+		// 最初の角度
+		this.rr = Math.random() * 12 * 30;
+		this.rotation = this.rr;
+		// 回転する角度
+		this.rrr = (Math.random() * 3 + 1) * 3;
+		this.rrrr = Math.random() * 4 + 1 - 2;
+		// x座標は振り子運動
+		this.xr = Math.random() * 100;
+	}
+	this.frame_1 = function() {
+		//this.x += rrrr;
+		xt = this.x;
+		xs = 0.5 * Math.cos(this.xr * (Math.PI / 100));
+		this.x += xs + xTilt;
+		this.xr += 5;
+		this.y += this.i * 2;
+		if (this.rotation > 360)
+		{
+			this.rotation = 0;
+		}
+		if (this.z < rotateRatio) {
+			this.rotation += this.rrr;
+		}
+		this.scaleX = this.scaleY = this.scl;
+		//特定のエリアを避ける
+		if(this.x >= avoidStartX && this.x <= avoidEndX 
+			&& this.y >= avoidStartY && this.y <= avoidEndY){
+			if (this.x < (avoidEndX + avoidStartX) / 2){
+				this.x = xt + xs - xTilt;
+			} else {
+				this.x = xt + xs + xTilt;
+			}
+			this.xo = this.x;
+		}
+		// 外に出たら戻す
+		if (this.y >= movieHeight + 10)
+		{
+			this.y = 5 - movieHeight;
+		}   
+		if ((this.x >= movieWidth + 10) || (this.x <= -50))
+		{
+			this.x = -50 + Math.random() * movieWidth;
+			this.y = -5;
+		}
+	}
+	this.frame_2 = function() {
+		this.gotoAndPlay(1);
+	}
+	// actions tween:
+	this.timeline.addTween(cjs.Tween.get(this).call(this.frame_0).wait(1).call(this.frame_1).wait(1).call(this.frame_2).wait(1));
+	// レイヤー_1
+	this.instance = new lib.hana2();
+	this.instance.setTransform(0,0,0.3778,0.4063);
+	this.timeline.addTween(cjs.Tween.get(this.instance).wait(3));
+	this._renderFirstFrame();
+}).prototype = p = new cjs.MovieClip();
+p.nominalBounds = new cjs.Rectangle(0,0,34,26);
+(lib.petalA1 = function(mode,startPosition,loop) {
+	this.initialize(mode,startPosition,loop,{});
+	// timeline functions:
+	this.frame_0 = function() {
+		this.visible=false;
+		// 乱数z
+		this.z =  Math.random();
+		//console.log(z);
+		// 落下速度
+		this.i = 1 + this.z * 0.85;
+		// 大きさ
+		this.scl = 0.4 + this.z * 0.8;
+		this.scaleX = this.scaleY = this.scl;
+		// 移動値
+		this.x = -50 + Math.random() * movieWidth;
+		this.xo = this.x;
+		this.y = -5 - Math.random() * movieHeight;
+		// 最初の角度
+		this.rr = Math.random() * 12 * 30;
+		this.rotation = this.rr;
+		// 回転する角度
+		this.rrr = (Math.random() * 3 + 1) * 3;
+		this.rrrr = Math.random() * 4 + 1 - 2;
+		// x座標は振り子運動
+		this.xr = Math.random() * 100;
+	}
+	this.frame_1 = function() {
+		//this.x += rrrr;
+		xt = this.x;
+		xs = 0.5 * Math.cos(this.xr * (Math.PI / 100));
+		this.x += xs + xTilt;
+		this.xr += 5;
+		this.y += this.i * 2;
+		if (this.rotation > 360)
+		{
+			this.rotation = 0;
+		}
+		if (this.z < rotateRatio) {
+			this.rotation += this.rrr;
+		}
+		this.scaleX = this.scaleY = this.scl;
+		//特定のエリアを避ける
+		if(this.x >= avoidStartX && this.x <= avoidEndX 
+			&& this.y >= avoidStartY && this.y <= avoidEndY){
+			if (this.x < (avoidEndX + avoidStartX) / 2){
+				this.x = xt + xs - xTilt;
+			} else {
+				this.x = xt + xs + xTilt;
+			}
+			this.xo = this.x;
+		}
+		// 外に出たら戻す
+		if (this.y >= movieHeight + 10)
+		{
+			this.y = 5 - movieHeight;
+		}   
+		if ((this.x >= movieWidth + 10) || (this.x <= -50))
+		{
+			this.x = -50 + Math.random() * movieWidth;
+			this.y = -5;
+		}
+	}
+	this.frame_2 = function() {
+		this.gotoAndPlay(1);
+	}
+	// actions tween:
+	this.timeline.addTween(cjs.Tween.get(this).call(this.frame_0).wait(1).call(this.frame_1).wait(1).call(this.frame_2).wait(1));
+	// レイヤー_1
+	this.instance = new lib.hana1();
+	this.instance.setTransform(0,0,0.5094,0.4699);
+	this.timeline.addTween(cjs.Tween.get(this.instance).wait(3));
+	this._renderFirstFrame();
+}).prototype = p = new cjs.MovieClip();
+p.nominalBounds = new cjs.Rectangle(0,0,27,39);
+(lib.枠エフェクト_3_1 = function(mode,startPosition,loop) {
+	this.initialize(mode,startPosition,loop,{});
+	// レイヤー_1
+	this.instance = new lib.枠エフェクト_3();
+	this.timeline.addTween(cjs.Tween.get(this.instance).wait(1));
+	this._renderFirstFrame();
+}).prototype = getMCSymbolPrototype(lib.枠エフェクト_3_1, new cjs.Rectangle(0,0,640,800), null);
+(lib.枠エフェクト_2_1 = function(mode,startPosition,loop) {
+	this.initialize(mode,startPosition,loop,{});
+	// レイヤー_1
+	this.instance = new lib.枠エフェクト_2();
+	this.timeline.addTween(cjs.Tween.get(this.instance).wait(1));
+	this._renderFirstFrame();
+}).prototype = getMCSymbolPrototype(lib.枠エフェクト_2_1, new cjs.Rectangle(0,0,640,800), null);
+(lib.枠エフェクト_1_1 = function(mode,startPosition,loop) {
+	this.initialize(mode,startPosition,loop,{});
+	// レイヤー_1
+	this.instance = new lib.枠エフェクト_1();
+	this.timeline.addTween(cjs.Tween.get(this.instance).wait(1));
+	this._renderFirstFrame();
+}).prototype = getMCSymbolPrototype(lib.枠エフェクト_1_1, new cjs.Rectangle(0,0,640,800), null);
+(lib.枠_1 = function(mode,startPosition,loop) {
+	this.initialize(mode,startPosition,loop,{});
+	// レイヤー_1
+	this.instance = new lib.枠();
+	this.timeline.addTween(cjs.Tween.get(this.instance).wait(1));
+	this._renderFirstFrame();
+}).prototype = getMCSymbolPrototype(lib.枠_1, new cjs.Rectangle(0,0,640,800), null);
+(lib.口パク = function(mode,startPosition,loop) {
+	this.initialize(mode,startPosition,loop,{});
+	// 口_3
+	this.instance = new lib.口_3();
+	this.instance._off = true;
+	this.timeline.addTween(cjs.Tween.get(this.instance).wait(4).to({_off:false},0).to({_off:true},4).wait(3).to({_off:false},0).to({_off:true},4).wait(3).to({_off:false},0).to({_off:true},2).wait(5).to({_off:false},0).to({_off:true},5).wait(1));
+	// 口_2
+	this.instance_1 = new lib.口_2();
+	this.timeline.addTween(cjs.Tween.get(this.instance_1).to({_off:true},2).wait(13).to({_off:false},0).to({_off:true},3).wait(4).to({_off:false},0).to({_off:true},3).wait(5).to({_off:false},0).wait(1));
+	// 口_1
+	this.instance_2 = new lib.口_1();
+	this.instance_2._off = true;
+	this.timeline.addTween(cjs.Tween.get(this.instance_2).wait(2).to({_off:false},0).to({_off:true},2).wait(4).to({_off:false},0).to({_off:true},3).wait(9).to({_off:false},0).to({_off:true},2).wait(9));
+	this._renderFirstFrame();
+}).prototype = p = new cjs.MovieClip();
+p.nominalBounds = new cjs.Rectangle(0,0,640,800);
+(lib.シンボル9 = function(mode,startPosition,loop) {
+	this.initialize(mode,startPosition,loop,{});
+	// flower
+	this.instance = new lib.シンボル11();
+	this.instance.setTransform(1412.1,-289.25,1,1,0,0,0,30.5,14.5);
+	this.instance_1 = new lib.シンボル11();
+	this.instance_1.setTransform(1352.1,-289.25,1,1,0,0,0,30.5,14.5);
+	this.instance_2 = new lib.シンボル11();
+	this.instance_2.setTransform(1293.1,-289.25,1,1,0,0,0,30.5,14.5);
+	this.instance_3 = new lib.シンボル11();
+	this.instance_3.setTransform(1232.1,-289.25,1,1,0,0,0,30.5,14.5);
+	this.instance_4 = new lib.シンボル10();
+	this.instance_4.setTransform(1410.6,-563,1,1,0,0,0,30,25.5);
+	this.instance_5 = new lib.シンボル10();
+	this.instance_5.setTransform(1350.6,-563,1,1,0,0,0,30,25.5);
+	this.instance_6 = new lib.シンボル10();
+	this.instance_6.setTransform(1290.6,-563,1,1,0,0,0,30,25.5);
+	this.instance_7 = new lib.シンボル10();
+	this.instance_7.setTransform(1230.6,-563,1,1,0,0,0,30,25.5);
+	this.instance_8 = new lib.シンボル11();
+	this.instance_8.setTransform(1171.1,-289.25,1,1,0,0,0,30.5,14.5);
+	this.instance_9 = new lib.シンボル10();
+	this.instance_9.setTransform(1170.6,-563,1,1,0,0,0,30,25.5);
+	this.instance_10 = new lib.シンボル11();
+	this.instance_10.setTransform(1110.1,-289.25,1,1,0,0,0,30.5,14.5);
+	this.instance_11 = new lib.シンボル11();
+	this.instance_11.setTransform(1050.1,-289.25,1,1,0,0,0,30.5,14.5);
+	this.instance_12 = new lib.シンボル11();
+	this.instance_12.setTransform(991.1,-289.25,1,1,0,0,0,30.5,14.5);
+	this.instance_13 = new lib.シンボル11();
+	this.instance_13.setTransform(930.1,-289.25,1,1,0,0,0,30.5,14.5);
+	this.instance_14 = new lib.シンボル10();
+	this.instance_14.setTransform(1108.6,-563,1,1,0,0,0,30,25.5);
+	this.instance_15 = new lib.シンボル10();
+	this.instance_15.setTransform(1048.6,-563,1,1,0,0,0,30,25.5);
+	this.instance_16 = new lib.シンボル10();
+	this.instance_16.setTransform(988.6,-563,1,1,0,0,0,30,25.5);
+	this.instance_17 = new lib.シンボル10();
+	this.instance_17.setTransform(928.6,-563,1,1,0,0,0,30,25.5);
+	this.instance_18 = new lib.シンボル11();
+	this.instance_18.setTransform(869.1,-289.25,1,1,0,0,0,30.5,14.5);
+	this.instance_19 = new lib.シンボル10();
+	this.instance_19.setTransform(868.6,-563,1,1,0,0,0,30,25.5);
+	this.instance_20 = new lib.シンボル11();
+	this.instance_20.setTransform(1108.1,-245.9,1,1,0,0,0,30.5,14.5);
+	this.instance_21 = new lib.シンボル11();
+	this.instance_21.setTransform(1048.1,-245.9,1,1,0,0,0,30.5,14.5);
+	this.instance_22 = new lib.シンボル11();
+	this.instance_22.setTransform(989.1,-245.9,1,1,0,0,0,30.5,14.5);
+	this.instance_23 = new lib.シンボル11();
+	this.instance_23.setTransform(928.1,-245.9,1,1,0,0,0,30.5,14.5);
+	this.instance_24 = new lib.シンボル10();
+	this.instance_24.setTransform(1108.6,-512,1,1,0,0,0,30,25.5);
+	this.instance_25 = new lib.シンボル10();
+	this.instance_25.setTransform(1048.6,-512,1,1,0,0,0,30,25.5);
+	this.instance_26 = new lib.シンボル10();
+	this.instance_26.setTransform(988.6,-512,1,1,0,0,0,30,25.5);
+	this.instance_27 = new lib.シンボル10();
+	this.instance_27.setTransform(928.6,-512,1,1,0,0,0,30,25.5);
+	this.instance_28 = new lib.シンボル11();
+	this.instance_28.setTransform(867.1,-245.9,1,1,0,0,0,30.5,14.5);
+	this.instance_29 = new lib.シンボル10();
+	this.instance_29.setTransform(868.6,-512,1,1,0,0,0,30,25.5);
+	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.instance_29},{t:this.instance_28},{t:this.instance_27},{t:this.instance_26},{t:this.instance_25},{t:this.instance_24},{t:this.instance_23},{t:this.instance_22},{t:this.instance_21},{t:this.instance_20},{t:this.instance_19},{t:this.instance_18},{t:this.instance_17},{t:this.instance_16},{t:this.instance_15},{t:this.instance_14},{t:this.instance_13},{t:this.instance_12},{t:this.instance_11},{t:this.instance_10},{t:this.instance_9},{t:this.instance_8},{t:this.instance_7},{t:this.instance_6},{t:this.instance_5},{t:this.instance_4},{t:this.instance_3},{t:this.instance_2},{t:this.instance_1},{t:this.instance}]}).wait(60));
+	this._renderFirstFrame();
+}).prototype = p = new cjs.MovieClip();
+p.nominalBounds = new cjs.Rectangle(836.6,-588.5,605.9999999999999,357.1);
+(lib.rip2 = function(mode,startPosition,loop) {
+	this.initialize(mode,startPosition,loop,{});
+	// timeline functions:
+	this.frame_0 = function() {
+		this.stop();
+		this.rip2.gotoAndStop(0);
+	}
+	this.frame_1 = function() {
+		this.rip2.play();
+	}
+	this.frame_47 = function() {
+		this.gotoAndStop(0);
+		this.rip2.gotoAndStop(0);
+	}
+	// actions tween:
+	this.timeline.addTween(cjs.Tween.get(this).call(this.frame_0).wait(1).call(this.frame_1).wait(46).call(this.frame_47).wait(1));
+	// 口パク
+	this.rip2 = new lib.口パク();
+	this.rip2.name = "rip2";
+	this.rip2.setTransform(37,24,1,1,0,0,0,37,24);
+	this.rip = new lib.口パク();
+	this.rip.name = "rip";
+	this.rip.setTransform(37,24,1,1,0,0,0,37,24);
+	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.rip2}]}).to({state:[{t:this.rip2}]},1).to({state:[{t:this.rip}]},46).wait(1));
+	this._renderFirstFrame();
+}).prototype = p = new cjs.MovieClip();
+p.nominalBounds = new cjs.Rectangle(0,0,640,800);
+(lib.rip = function(mode,startPosition,loop) {
+	this.initialize(mode,startPosition,loop,{});
+	// timeline functions:
+	this.frame_0 = function() {
+		this.stop();
+		this.rip.gotoAndStop(0);
+	}
+	this.frame_1 = function() {
+		this.rip.play();
+	}
+	this.frame_37 = function() {
+		this.rip.gotoAndStop(4);
+	}
+	this.frame_53 = function() {
+		this.rip.play();
+	}
+	this.frame_132 = function() {
+		this.rip.gotoAndStop(4);
+	}
+	this.frame_140 = function() {
+		this.rip.play();
+	}
+	this.frame_216 = function() {
+		this.rip.gotoAndStop(4);
+	}
+	this.frame_250 = function() {
+		this.rip.play();
+	}
+	this.frame_383 = function() {
+		this.gotoAndStop(0);
+		this.rip.gotoAndStop(0);
+	}
+	// actions tween:
+	this.timeline.addTween(cjs.Tween.get(this).call(this.frame_0).wait(1).call(this.frame_1).wait(36).call(this.frame_37).wait(16).call(this.frame_53).wait(79).call(this.frame_132).wait(8).call(this.frame_140).wait(76).call(this.frame_216).wait(34).call(this.frame_250).wait(133).call(this.frame_383).wait(1));
+	// 口パク
+	this.rip = new lib.口パク();
+	this.rip.name = "rip";
+	this.rip.setTransform(37,24,1,1,0,0,0,37,24);
+	this.timeline.addTween(cjs.Tween.get(this.rip).wait(384));
+	this._renderFirstFrame();
+}).prototype = p = new cjs.MovieClip();
+p.nominalBounds = new cjs.Rectangle(0,0,640,800);
+(lib.flower_blizzard = function(mode,startPosition,loop) {
+	this.initialize(mode,startPosition,loop,{});
+	// 花吹雪
+	this.instance = new lib.petalB2();
+	this.instance.setTransform(327.5,-184.5,1,1,0,0,0,19.5,14.5);
+	this.instance_1 = new lib.petalB2();
+	this.instance_1.setTransform(293.5,-184.5,1,1,0,0,0,19.5,14.5);
+	this.instance_2 = new lib.petalB2();
+	this.instance_2.setTransform(259.5,-184.5,1,1,0,0,0,19.5,14.5);
+	this.instance_3 = new lib.petalB2();
+	this.instance_3.setTransform(225.5,-184.5,1,1,0,0,0,19.5,14.5);
+	this.instance_4 = new lib.petalB2();
+	this.instance_4.setTransform(189.5,-184.5,1,1,0,0,0,19.5,14.5);
+	this.instance_5 = new lib.petalB2();
+	this.instance_5.setTransform(155.5,-184.5,1,1,0,0,0,19.5,14.5);
+	this.instance_6 = new lib.petalB2();
+	this.instance_6.setTransform(121.5,-184.5,1,1,0,0,0,19.5,14.5);
+	this.instance_7 = new lib.petalB2();
+	this.instance_7.setTransform(87.5,-184.5,1,1,0,0,0,19.5,14.5);
+	this.instance_8 = new lib.petalB2();
+	this.instance_8.setTransform(53.5,-184.5,1,1,0,0,0,19.5,14.5);
+	this.instance_9 = new lib.petalB1();
+	this.instance_9.setTransform(261,-233.5,1,1,0,0,0,17,12.5);
+	this.instance_10 = new lib.petalB1();
+	this.instance_10.setTransform(180,-233.5,1,1,0,0,0,17,12.5);
+	this.instance_11 = new lib.petalB1();
+	this.instance_11.setTransform(207,-233.5,1,1,0,0,0,17,12.5);
+	this.instance_12 = new lib.petalB1();
+	this.instance_12.setTransform(234,-233.5,1,1,0,0,0,17,12.5);
+	this.instance_13 = new lib.petalB1();
+	this.instance_13.setTransform(153,-233.5,1,1,0,0,0,17,12.5);
+	this.instance_14 = new lib.petalB1();
+	this.instance_14.setTransform(128,-233.5,1,1,0,0,0,17,12.5);
+	this.instance_15 = new lib.petalB1();
+	this.instance_15.setTransform(47,-233.5,1,1,0,0,0,17,12.5);
+	this.instance_16 = new lib.petalB1();
+	this.instance_16.setTransform(74,-233.5,1,1,0,0,0,17,12.5);
+	this.instance_17 = new lib.petalB1();
+	this.instance_17.setTransform(101,-233.5,1,1,0,0,0,17,12.5);
+	this.instance_18 = new lib.petalB3();
+	this.instance_18.setTransform(18.5,-136,1,1,0,0,0,15.5,15);
+	this.instance_19 = new lib.petalB2();
+	this.instance_19.setTransform(17.5,-184.5,1,1,0,0,0,19.5,14.5);
+	this.instance_20 = new lib.petalB1();
+	this.instance_20.setTransform(20,-233.5,1,1,0,0,0,17,12.5);
+	this.instance_21 = new lib.petalA2();
+	this.instance_21.setTransform(17,-289,1,1,0,0,0,17,13);
+	this.instance_22 = new lib.petalA1();
+	this.instance_22.setTransform(16.5,-340.5,1,1,0,0,0,13.5,19.5);
+	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.instance_22},{t:this.instance_21},{t:this.instance_20},{t:this.instance_19},{t:this.instance_18},{t:this.instance_17},{t:this.instance_16},{t:this.instance_15},{t:this.instance_14},{t:this.instance_13},{t:this.instance_12},{t:this.instance_11},{t:this.instance_10},{t:this.instance_9},{t:this.instance_8},{t:this.instance_7},{t:this.instance_6},{t:this.instance_5},{t:this.instance_4},{t:this.instance_3},{t:this.instance_2},{t:this.instance_1},{t:this.instance}]}).wait(60));
+	this._renderFirstFrame();
+}).prototype = p = new cjs.MovieClip();
+p.nominalBounds = new cjs.Rectangle(-2,-360,349,239);
+(lib.枠エフェクト = function(mode,startPosition,loop) {
+	this.initialize(mode,startPosition,loop,{});
+	// 枠エフェクト_1_
+	this.instance = new lib.枠エフェクト_1_1();
+	this.instance.setTransform(320,400,1,1,0,0,0,320,400);
+	this.instance.alpha = 0.6016;
+	this.timeline.addTween(cjs.Tween.get(this.instance).to({alpha:0},14).to({alpha:0.6016},16).wait(1));
+	// 枠エフェクト_2
+	this.instance_1 = new lib.枠エフェクト_2_1();
+	this.instance_1.setTransform(320,400,1,1,0,0,0,320,400);
+	this.instance_1.alpha = 0;
+	this.timeline.addTween(cjs.Tween.get(this.instance_1).to({alpha:0.5},14).to({alpha:0},16).wait(1));
+	// 枠エフェクト_3
+	this.instance_2 = new lib.枠エフェクト_3_1();
+	this.instance_2.setTransform(320,400,1,1,0,0,0,320,400);
+	this.instance_2.alpha = 0.1992;
+	this.timeline.addTween(cjs.Tween.get(this.instance_2).to({alpha:0},8).wait(1).to({alpha:0.5},10).to({alpha:0.1992},11).wait(1));
+	this._renderFirstFrame();
+}).prototype = p = new cjs.MovieClip();
+p.nominalBounds = new cjs.Rectangle(0,0,640,800);
+// stage content:
+(lib.main = function(mode,startPosition,loop) {
+	this.initialize(mode,startPosition,loop,{});
+	// フレア
+	this.instance = new lib.フレア_1();
+	this.instance.setTransform(320,400,1,1,0,0,0,320,400);
+	this.instance.compositeOperation = "lighter";
+	this.timeline.addTween(cjs.Tween.get(this.instance).to({alpha:0.3984},29).to({alpha:1},30).wait(1));
+	// _4
+	this.instance_1 = new lib.エフェクト_4_1();
+	this.instance_1.setTransform(320,400,1,1,0,0,0,320,400);
+	this.instance_1.alpha = 0.8008;
+	this.timeline.addTween(cjs.Tween.get(this.instance_1).to({alpha:0.1992},14).wait(30).to({alpha:0.8984},15).wait(1));
+	// _3
+	this.instance_2 = new lib.エフェクト_3_1();
+	this.instance_2.setTransform(320,400,1,1,0,0,0,320,400);
+	this.instance_2.alpha = 0.1992;
+	this.timeline.addTween(cjs.Tween.get(this.instance_2).wait(29).to({alpha:0.8008},15).to({alpha:0.1992},15).wait(1));
+	// _2
+	this.instance_3 = new lib.エフェクト_2_1();
+	this.instance_3.setTransform(320,400,1,1,0,0,0,320,400);
+	this.instance_3.alpha = 0.1992;
+	this.timeline.addTween(cjs.Tween.get(this.instance_3).wait(15).to({alpha:0.8008},14).to({alpha:0.1992},22).wait(9));
+	// _1
+	this.instance_4 = new lib.エフェクト_1_1();
+	this.instance_4.setTransform(320,400,1,1,0,0,0,320,400);
+	this.instance_4.alpha = 0.1992;
+	this.instance_4.compositeOperation = "lighter";
+	this.timeline.addTween(cjs.Tween.get(this.instance_4).to({alpha:0.6992},15).to({alpha:0.1992},28).wait(17));
+	// 枠エフェクト
+	this.instance_5 = new lib.枠エフェクト();
+	this.instance_5.setTransform(320,400,1,1,0,0,0,320,400);
+	this.instance_5.compositeOperation = "lighter";
+	this.timeline.addTween(cjs.Tween.get(this.instance_5).wait(60));
+	// 情熱
+	this.instance_6 = new lib.タイプ_情熱();
+	this.timeline.addTween(cjs.Tween.get(this.instance_6).wait(60));
+	// 枠
+	this.instance_7 = new lib.枠_1();
+	this.instance_7.setTransform(320,400,1,1,0,0,0,320,400);
+	this.timeline.addTween(cjs.Tween.get(this.instance_7).wait(60));
+	// flower_blizzard
+	this.flower_blizzard = new lib.flower_blizzard();
+	this.flower_blizzard.name = "flower_blizzard";
+	this.flower_blizzard.setTransform(320,400,1,1,0,0,0,320,400);
+	this.timeline.addTween(cjs.Tween.get(this.flower_blizzard).wait(60));
+	// 口パク
+	this.rip_up1 = new lib.rip();
+	this.rip_up1.name = "rip_up1";
+	this.rip_up1.setTransform(19.3,19.3,1,1,0,0,0,19.3,19.3);
+	this.timeline.addTween(cjs.Tween.get(this.rip_up1).wait(60));
+	// 口パク2
+	this.rip_up2 = new lib.rip2();
+	this.rip_up2.name = "rip_up2";
+	this.rip_up2.setTransform(320,400,1,1,0,0,0,320,400);
+	this.timeline.addTween(cjs.Tween.get(this.rip_up2).wait(60));
+	// 目閉じ
+	this.instance_8 = new lib.目_1();
+	this.instance_8._off = true;
+	this.timeline.addTween(cjs.Tween.get(this.instance_8).wait(5).to({_off:false},0).to({_off:true},2).wait(9).to({_off:false},0).to({_off:true},1).wait(1).to({_off:false},0).to({_off:true},2).wait(40));
+	// 半目
+	this.instance_9 = new lib.目_2();
+	this.instance_9._off = true;
+	this.timeline.addTween(cjs.Tween.get(this.instance_9).wait(4).to({_off:false},0).to({_off:true},1).wait(2).to({_off:false},0).to({_off:true},1).wait(12).to({_off:false},0).to({_off:true},1).wait(39));
+	// 開眼
+	this.instance_10 = new lib.目_3();
+	this.timeline.addTween(cjs.Tween.get(this.instance_10).wait(60));
+	// 口パク
+	this.instance_11 = new lib.口パク();
+	this.instance_11.setTransform(37,24,1,1,0,0,0,37,24);
+	this.timeline.addTween(cjs.Tween.get(this.instance_11).wait(60));
+	// キャラ
+	this.instance_12 = new lib.キャラ();
+	this.timeline.addTween(cjs.Tween.get(this.instance_12).wait(60));
+	// back_flower
+	this.back_flower = new lib.シンボル9();
+	this.back_flower.name = "back_flower";
+	this.back_flower.setTransform(41.4,25.8,1,1,0,0,0,41.4,25.8);
+	this.timeline.addTween(cjs.Tween.get(this.back_flower).wait(60));
+	// 背景
+	this.instance_13 = new lib.背景();
+	this.timeline.addTween(cjs.Tween.get(this.instance_13).wait(60));
+	this._renderFirstFrame();
+}).prototype = p = new cjs.MovieClip();
+p.nominalBounds = new cjs.Rectangle(318,-188.5,1124.6,988.5);
+// library properties:
+lib.properties = {
+	id: 'BBAD9F138FF4F84CBFD3A7EDA49F273D',
+	width: 640,
+	height: 800,
+	fps: 24,
+	color: "#000000",
+	opacity: 1.00,
+	manifest: [
+		{src:"{{MEDIA_URL}}/imgs/card/miyabiEffect/{{ page_id }}/main_atlas_.png", id:"main_atlas_"},
+		{src:"{{MEDIA_URL}}/imgs/card/miyabiEffect/{{ page_id }}/main_atlas_2.png", id:"main_atlas_2"},
+		{src:"{{MEDIA_URL}}/imgs/card/miyabiEffect/{{ page_id }}/main_atlas_3.png", id:"main_atlas_3"}
+	],
+	preloads: []
+};
+// bootstrap callback support:
+(lib.Stage = function(canvas) {
+	createjs.Stage.call(this, canvas);
+}).prototype = p = new createjs.StageGL();
+p.setAutoPlay = function(autoPlay) {
+	this.tickEnabled = autoPlay;
+}
+p.play = function() { this.tickEnabled = true; this.getChildAt(0).gotoAndPlay(this.getTimelinePosition()) }
+p.stop = function(ms) { if(ms) this.seek(ms); this.tickEnabled = false; }
+p.seek = function(ms) { this.tickEnabled = true; this.getChildAt(0).gotoAndStop(lib.properties.fps * ms / 1000); }
+p.getDuration = function() { return this.getChildAt(0).totalFrames / lib.properties.fps * 1000; }
+p.getTimelinePosition = function() { return this.getChildAt(0).currentFrame / lib.properties.fps * 1000; }
+an.bootcompsLoaded = an.bootcompsLoaded || [];
+if(!an.bootstrapListeners) {
+	an.bootstrapListeners=[];
+}
+an.bootstrapCallback=function(fnCallback) {
+	an.bootstrapListeners.push(fnCallback);
+	if(an.bootcompsLoaded.length > 0) {
+		for(var i=0; i<an.bootcompsLoaded.length; ++i) {
+			fnCallback(an.bootcompsLoaded[i]);
+		}
+	}
+};
+an.compositions = an.compositions || {};
+an.compositions['BBAD9F138FF4F84CBFD3A7EDA49F273D'] = {
+	getStage: function() { return exportRoot.stage; },
+	getLibrary: function() { return lib; },
+	getSpriteSheet: function() { return ss; },
+	getImages: function() { return img; }
+};
+an.compositionLoaded = function(id) {
+	an.bootcompsLoaded.push(id);
+	for(var j=0; j<an.bootstrapListeners.length; j++) {
+		an.bootstrapListeners[j](id);
+	}
+}
+an.getComposition = function(id) {
+	return an.compositions[id];
+}
+an.makeResponsive = function(isResp, respDim, isScale, scaleType, domContainers) {		
+	var lastW, lastH, lastS=1;		
+	window.addEventListener('resize', resizeCanvas);		
+	resizeCanvas();		
+	function resizeCanvas() {			
+		var w = lib.properties.width, h = lib.properties.height;			
+		var iw = window.innerWidth, ih=window.innerHeight;			
+		var pRatio = window.devicePixelRatio || 1, xRatio=iw/w, yRatio=ih/h, sRatio=1;			
+		if(isResp) {                
+			if((respDim=='width'&&lastW==iw) || (respDim=='height'&&lastH==ih)) {                    
+				sRatio = lastS;                
+			}				
+			else if(!isScale) {					
+				if(iw<w || ih<h)						
+					sRatio = Math.min(xRatio, yRatio);				
+			}				
+			else if(scaleType==1) {					
+				sRatio = Math.min(xRatio, yRatio);				
+			}				
+			else if(scaleType==2) {					
+				sRatio = Math.max(xRatio, yRatio);				
+			}			
+		}			
+		domContainers[0].width = w * pRatio * sRatio;			
+		domContainers[0].height = h * pRatio * sRatio;			
+		domContainers.forEach(function(container) {				
+			container.style.width = w * sRatio + 'px';				
+			container.style.height = h * sRatio + 'px';			
+		});			
+		stage.scaleX = pRatio*sRatio;			
+		stage.scaleY = pRatio*sRatio;			
+		lastW = iw; lastH = ih; lastS = sRatio;            
+		stage.tickOnUpdate = false;            
+		stage.update();            
+		stage.tickOnUpdate = true;		
+	}
+}
+})(createjs = createjs||{}, AdobeAn = AdobeAn||{});
+var createjs, AdobeAn;
+</script>
+<script>
+// Global Scripts
+	// キャンバスサイズ
+movieWidth = 640;
+movieHeight = 800;
+// 演出が被らない範囲
+avoidStartX = 320;
+avoidEndX = 470;
+avoidStartY = 0;
+avoidEndY = 322;
+// x方向の傾き
+xTilt = 0.5;
+// 回転比率(0.4 = 40%)
+rotateRatio = 0.5;
+clickFlg = true;
+function playVoice1() {
+	exportRoot.rip_up1.visible = true;
+	exportRoot.rip_up2.visible = false;
+	exportRoot.rip_up1.play();
+}
+function stopVoice1() {
+	exportRoot.rip_up1.gotoAndStop(0);
+}
+function playVoice2() {
+	exportRoot.rip_up1.visible = false;
+	exportRoot.rip_up2.visible = true;
+	exportRoot.rip_up2.play();
+}
+function stopVoice2() {
+	exportRoot.rip_up2.gotoAndStop(0);
+}
+function changeEffect() {
+	exportRoot.flower_blizzard.visible = !exportRoot.flower_blizzard.visible;
+	exportRoot.back_flower.visible = !exportRoot.back_flower.visible;
+}</script>
+<script>
+var canvas, stage, exportRoot, anim_container, dom_overlay_container, fnStartAnimation;
+function init() {
+	canvas = document.getElementById("canvas");
+	anim_container = document.getElementById("animation_container");
+	dom_overlay_container = document.getElementById("dom_overlay_container");
+	var comp=AdobeAn.getComposition("BBAD9F138FF4F84CBFD3A7EDA49F273D");
+	var lib=comp.getLibrary();
+	var loader = new createjs.LoadQueue(false);
+	loader.addEventListener("fileload", function(evt){handleFileLoad(evt,comp)});
+	loader.addEventListener("complete", function(evt){handleComplete(evt,comp)});
+	var lib=comp.getLibrary();
+	loader.loadManifest(lib.properties.manifest);
+}
+function handleFileLoad(evt, comp) {
+	var images=comp.getImages();	
+	if (evt && (evt.item.type == "image")) { images[evt.item.id] = evt.result; }	
+}
+function handleComplete(evt,comp) {
+	//This function is always called, irrespective of the content. You can use the variable "stage" after it is created in token create_stage.
+	var lib=comp.getLibrary();
+	var ss=comp.getSpriteSheet();
+	var queue = evt.target;
+	var ssMetadata = lib.ssMetadata;
+	for(i=0; i<ssMetadata.length; i++) {
+		ss[ssMetadata[i].name] = new createjs.SpriteSheet( {"images": [queue.getResult(ssMetadata[i].name)], "frames": ssMetadata[i].frames} )
+	}
+	exportRoot = new lib.main();
+	stage = new lib.Stage(canvas);	
+	//Registers the "tick" event listener.
+	fnStartAnimation = function() {
+		stage.addChild(exportRoot);
+		createjs.Ticker.framerate = lib.properties.fps;
+		createjs.Ticker.addEventListener("tick", stage);
+	}	    
+	//Code to support hidpi screens and responsive scaling.
+	AdobeAn.makeResponsive(true,'both',false,1,[canvas,anim_container,dom_overlay_container]);	
+	AdobeAn.compositionLoaded(lib.properties.id);
+	fnStartAnimation();
+}
+</script>
+<!-- write your code here -->
+</head>
+<body onload="init();" style="margin:0px;">
+	<div id="animation_container" style="background-color:rgba(0, 0, 0, 1.00); width:640px; height:800px">
+		<canvas id="canvas" width="640" height="800" style="position: absolute; display: block; background-color:rgba(0, 0, 0, 1.00);"></canvas>
+		<div id="dom_overlay_container" style="pointer-events:none; overflow:hidden; width:640px; height:800px; position: absolute; left: 0px; top: 0px; display: block;">
+		</div>
+	</div>
+</body>
+</html>

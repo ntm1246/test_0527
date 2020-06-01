@@ -1,0 +1,37 @@
+{% extends 'common/base.html' %}
+
+{% block content %}
+{% include './partial/section_title.html' with title="ヘルプ" class="section_title" %}
+
+{% for help in help_title_list %}
+    <div class="back_link0">
+        <a href="{% opensocial_url help_detail help.message_id %}" class="back_link">
+            {% if help.headline == 1 and help.headline %}
+                <span class="color_white">■</span>&nbsp;
+            {% elif help.headline == 2 %}
+               <span class="color_white">∟</span>&nbsp;
+            {% endif %}
+            {{ help.title }}
+            {% if help.new %}
+                &nbsp;<span class="blink color_red">NEW!!</span>
+            {% endif %}
+        </a>
+    </div>
+{% endfor %}
+
+{% comment %}
+{% if testflg %}
+    <div class="back_link0">
+        <a href="{% opensocial_url papp_popularity_vote_index %}" class="back_link">
+                &nbsp;<span class="color_gray">注意事項</span>
+        </a>
+    </div>
+{% endif %}
+{% endcomment %}
+
+{% if osuser_id and osuser_id in settings.MAINTENANCE_OSUSER_IDS %}
+    <a href="{% opensocial_url papp_other_cp_test %}">※知的財産について(1)</a><br>
+    <a href="{% opensocial_url princess_anim 10647243 %}">※知的財産について(2)</a>
+{% endif %}
+
+{% endblock %}

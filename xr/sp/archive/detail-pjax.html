@@ -1,0 +1,211 @@
+{% pjaxviaproxy %}
+{% block stylecss %}<link href="{{MEDIA_URL}}/css/parallax.css?20160830110928" rel="stylesheet" type="text/css">{% endblock %}
+
+{% include './partial/page_title.html' with title="姫詳細" class="page_title" %}
+{% if not player_card_id %}
+<table class="full" style="margin-top: 8px">
+    <tr>
+        <td class="left">
+            {% if prev_card == None %}
+                ←前の{{ T.CARD }}
+            {% else %}
+                <a href="{% opensocial_url archive_detail prev_card.card_id search prev_page %}" class="js-pjax" data-pjax="main">←前の{{ T.CARD }} </a>
+            {% endif %}
+        </td>
+        <td class="right">
+            {% if next_card == None %}
+                次の{{ T.CARD }}→
+            {% else %}
+                <a href="{% opensocial_url archive_detail next_card.card_id search next_page %}" class="js-pjax" data-pjax="main">次の{{ T.CARD }}→</a>
+            {% endif %}
+        </td>
+    </tr>
+</table>
+<hr />
+{% endif  %}
+<div class="center element_titleback_{{ card.element_obj.id }}">
+<span class="element_{{ card.element_obj.id }}">{{ card.element_obj.name }}</span>&nbsp;{{ card.name }}&nbsp;<span class="color_light_yellow">({{ card.rarity_obj.name}})</span>
+
+</div>
+<div class="center" id="card_image">
+    {% if card.love_max %}
+        <img src="{{ MEDIA_URL }}/imgs/card/shinai/icon_shinai_max_m.png" class="full" width="320px" height="40px"/><br />
+    {% endif %}
+
+    {% if card.flag_is_parallax %}
+        <div class="parallax">
+            <img src="{{ card.image_url.large }}" style='width:320px;height:400px;' class='layer'>
+            <img src="{{ card.image_url.parallax }}" style='width:320px;height:400px;' class='masked' hmove='-16' vmove='0'>
+        </div>
+        <script src="{{ MEDIA_URL }}/js/jquery.min.js?20150401161528" type="text/javascript"></script>
+        <script src="{{ MEDIA_URL }}/js/parallax.js?20130222182814" type="text/javascript"></script>
+    {% else %}
+        {% if card.flag_is_transparent %}
+            <div class="parallax">
+                <img src="{{ card.image_url.transparent_base }}" style='width:320px;height:400px;' class='layer'>
+                <img src="{{ card.image_url.transparent }}" style='width:320px;height:400px;' class='masked' hmove='-16' vmove='0'>
+            </div>
+            <script src="{{ MEDIA_URL }}/js/jquery.min.js?20150401161528" type="text/javascript"></script>
+            <script src="{{ MEDIA_URL }}/js/parallax.js?20130222182814" type="text/javascript"></script>
+        {% else %}
+            {% if card.rarity >= 19 %}
+                <img src="{{ MEDIA_URL }}/imgs/card/miyabiEffect/Loading.jpg" width="320" height="400" style="border: 1px; top:93px; z-index: 10;" id="dummy">
+                <iframe src="{% opensocial_url xr_anim card.id %}" width="320" height="400" style="border: 1px;display: none;" id="child-frame"></iframe>
+                {% voice_miyabi card.profile_comment %}
+                <div class="center">
+                    <div class="inline_block mt5 effect_on" style="background: -webkit-radial-gradient(49% 12%, circle, #dd0076 0%, #94004f 69%, #000 100%);">
+                        <p class="effect_button_small">演出ON</p>
+                    </div>
+                </div>
+                <script>
+                    $('#child-frame').load(function(){
+                        $('#dummy').css('position', 'absolute');
+                        $('#child-frame').fadeIn(1000);
+                        $('#dummy').fadeOut(500);
+                    });
+                    $(document).on('click', '.effect_button_small', function() {
+                        document.getElementById('child-frame').contentWindow.changeEffect();
+                        if ($(this).parent().hasClass('effect_on')){
+                            $('.effect_button_small').text('演出OFF');
+                            $(this).parent().toggleClass('effect_on');
+                            $(this).parent().css('background', '-webkit-radial-gradient(49% 12%, circle, #696969 50%, #696969 50%, #696969 50%)');
+                        } else {
+                            $('.effect_button_small').text('演出ON');
+                            $(this).parent().toggleClass('effect_on');
+                            $(this).parent().css('background', '-webkit-radial-gradient(49% 12%, circle, #dd0076 0%, #94004f 69%, #000 100%)');
+                        }
+                    });
+                </script>
+                <style >
+                .new_button_voice {
+                    position: absolute;
+                    background-size: 320px;
+                    background-repeat: no-repeat;
+                    z-index: 1;
+                    top: 498px;
+                    width: 320px;
+                    height: 40px;
+                    margin-left: 288px;
+                }
+                .effect_button_small {
+                    width: 110px;
+                    height: 29px;
+                    background-image:url('/static/sp/imgs/common/button/button_small.png');
+                    background-size: 110px;
+                    background-repeat: no-repeat;
+                    line-height: 29px;
+                    vertical-align: middle;
+                    font-weight: bold;
+                    font-size: 13px;
+                    color: #ffffff;
+                    text-shadow: 1px 1px 2px #000000;
+                    text-align: center;
+                }
+                </style>
+            {% else %}
+            <img src="{{ card.image_url.large }}" style="width:100%" />
+            {% endif %}
+        {% endif %}
+    {% endif %}
+
+</div>
+
+<img src="{{MEDIA_URL}}/imgs/lines/lines_top_{{ card.element_obj.id }}_1.png" width="100%" class="block" />
+
+<div class="voice_lines">
+    {% if card.rarity >= 19 %}
+        {{ card.get_detail.profile_comment }}
+    {% else %}
+        {% voice card.get_detail.profile_comment %}
+    {% endif %}
+<img src="{{MEDIA_URL}}/imgs/lines/lines_bottom_{{ card.element_obj.id }}.png" width="100%" class="block" />
+</div>
+
+{% if card.flag_is_shake %}
+    <div class="center">
+        <div class="inline_block mt5" style="background: -webkit-radial-gradient(49% 12%, circle, #dd0076 0%, #94004f 69%, #000 100%);">
+            <a href="{% opensocial_url shake_index card.pk%}"><p class="pict_button_small">揺らす!</p></a>
+        </div>
+    </div>
+{% endif %}
+
+
+<div class="center m10">
+    <span class="color_yellow">Rank:</span>&nbsp;{{card.rank}}&nbsp;&nbsp;
+    <span class="color_yellow">{{T.CARD_ATTACK_SHORT}}:</span>&nbsp;{{card.max_attack}}&nbsp;&nbsp;
+    <span class="color_yellow">{{T.CARD_DEFENSE_SHORT}}:</span>&nbsp;{{card.max_defense}}&nbsp;&nbsp;
+    <br />
+    <span class="color_yellow">{{T.CARD_NEED_COST}}:</span>&nbsp;{{card.require_magic}}&nbsp;&nbsp;
+    <span class="color_yellow">{{T.CARD_FAMILY}}:</span>{{ card.family_obj.name }}<br />
+</div>
+{% if card.love_max %}
+<div class="center">
+    <form action="{% opensocial_form_url archive_love_max_anim card.pk %}" method="post">
+        <input type="submit" value="もう一度会いに行く" class="push_button2 wpx130"/>
+        <input type="hidden" name="search" value="{{search}}"/>
+        <input type="hidden" name="page" value="{{page}}"/>
+    </form>
+</div>
+{% endif %}
+
+{% include './partial/page_title.html' with title="姫詳細" class="page_title" %}
+<div class="m10">
+    <span class="color_yellow">属性:</span>&nbsp;{{ card.race_obj.name }}&nbsp;&nbsp;
+    <span class="color_yellow">年齢:</span>&nbsp;{{ card.get_detail.age }}<br />
+
+    <span class="color_yellow">身長:</span>&nbsp;{{ card.get_detail.height }}&nbsp;&nbsp;
+    <span class="color_yellow">体重:</span>&nbsp;{{ card.get_detail.weight }}<br />
+
+    <span class="color_yellow">B:</span>&nbsp;{{ card.get_detail.bust }}&nbsp;&nbsp;
+    <span class="color_yellow">W:</span>&nbsp;{{ card.get_detail.waste }}&nbsp;&nbsp;
+    <span class="color_yellow">H:</span>&nbsp;{{ card.get_detail.hip }}<br />
+    <span class="color_yellow">趣味:</span>&nbsp;{{ card.get_detail.hobby }}<br />
+</div>
+
+{% if card.chain_skill_1 %}
+    {% include './partial/page_title.html' with title=T.SKILL class="page_title" %}
+    <div class="m10">
+        <span class="color_yellow">{{ T.SKILL }}</span>:{{ card.chain_skill_1.name }}&nbsp;&nbsp;
+        <br />
+        <span class="color_yellow">効果</span>:{{ skill_description }}
+    </div>
+    {% if card.chain_skill_2 %}
+        <div class="m10">
+            <span class="color_yellow">{{ T.SKILL_2 }}</span>:{{ card.chain_skill_2.name }}&nbsp;&nbsp;
+            <br />
+            <span class="color_yellow">効果</span>:{{ card.ability2_effect_description }}
+        </div>
+{% endif %}
+
+{% endif %}
+
+{% if chain_skill_list %}
+{% include './partial/page_title.html' with title=T.CHAIN_SKILL class="page_title" %}
+    {% for chain_skill in chain_skill_list %}
+        <div class="m10">
+        <span class="color_yellow">{{ T.CHAIN_SKILL }}</span>:{{ chain_skill.name }}&nbsp;&nbsp;
+        <br />
+        <span class="color_yellow">効果</span>:{{ chain_skill.description }}
+        </div>
+    {% endfor %}
+{% endif %}
+
+{% include './partial/page_title.html' with title="備考" class="page_title" %}
+<div class="m10">
+    <span class="color_yellow">所持人数</span>: {{get_count}}<br />
+    <span class="color_yellow">{{ T.SELL_MONEY }}</span>: {{card.sale_money}}
+</div>
+
+<div class="center m10">
+    <a class="back_link2" href="{% opensocial_url wish_execution settings.ENTITY_TYPE_CARD card.pk %}">{{ T.WISHLIST }}に登録</a>
+</div>
+
+{# <div style="padding: 5px; text-align: center"> #}
+<div class="back_link0 right">
+    {% if player_card_id  %}
+    <a href="{% opensocial_url card_detail player_card_id %}" class="back_link">姫詳細に戻る</a>
+    {% endif  %}
+    <a class="back_link" style="text-decoration: none" href="{% opensocial_url archive_page search page %}">戻る</a>
+</div>
+
+{% endpjaxviaproxy %}

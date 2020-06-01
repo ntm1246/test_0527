@@ -1,0 +1,20 @@
+{% extends 'common/base.html' %}
+{% load player_extra link_processor %}
+
+{% block content %}
+{% include './partial/section_title.html' with title="ﾘｰﾀﾞｰ"|add:T.CARD|add:"になりました" class="section_title" %}
+{% with player_card as detail_card %}
+{% include './fusion/large_card.html' %}
+{% endwith %}
+<div class="back_link0 right">
+<a href="{% opensocial_url card_index %}" class="back_link">{{T.CARD}}一覧に戻る</a>
+</div>
+<style>
+.new_button_voice {
+    top: 450px!important;
+}
+#dummy {
+    top:46px!important;
+}
+</style>
+{% endblock %}

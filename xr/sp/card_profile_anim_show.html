@@ -1,0 +1,438 @@
+
+{% if showtype == "small" %}
+
+    {% if card %}
+
+       <table width="100%">
+            <tr>
+                <td width="60">
+                    <img src="{{ card.image_url.small }}" class="image_card_small" />
+                </td>
+                <td valign="middle" class="left">
+                    <span class="td_font">
+                        <span class="element_{{ card.element_obj.id }}">{{ card.element_obj.name }}</span>&nbsp;{{ card.name }}&nbsp;<span class="color_light_yellow">({{ card.rarity_obj.name}})</span><br />
+                        <span class="color_orange">属性:</span>{{ card.race_obj.name }}&nbsp;<span class="color_orange">{{T.CARD_FAMILY}}:</span>{{ card.family_obj.name }}<br />
+                    </span>
+                </td>
+            </tr>
+        </table>
+        {{text}}
+
+
+
+    {% else %}
+
+        <table width="100%">
+            <tr>
+                <td width="80" class="center" valign="middle">
+                <img src="-" class="image_card_small" />
+                </td>
+                <td valign="middle" class="left">
+                    <span class="element_1">-</span>&nbsp;-&nbsp;<span class="color_light_yellow">(-)</span><br />
+                    <span class="color_orange">属性:</span>-&nbsp;<span class="color_orange">{{T.CARD_FAMILY}}:</span>-<br />
+                </td>
+            </tr>
+        </table>
+    {{text}}
+
+
+    {% endif %}
+
+{% elif showtype == "short" %}
+
+
+    {% if card %}
+
+
+       <table width="100%">
+            <tr>
+                <td width="80" valign="middle" class="center">
+                <img src="{{ card.image_url.short }}" class="image_card_short" />
+                </td>
+                <td valign="middle" class="left">
+                    <span class="td_font">
+                        <span class="element_{{ card.element_obj.id }}">{{ card.element_obj.name }}</span>&nbsp;{{ card.name }}&nbsp;<span class="color_light_yellow">({{ card.rarity_obj.name}})</span><br />
+                        <span class="color_orange">属性:</span>{{ card.race_obj.name }}&nbsp;<span class="color_orange">{{T.CARD_FAMILY}}:</span>{{ card.family_obj.name }}<br />
+                        {% if max_flag %}
+                            <span class="color_orange">MAX{{T.CARD_ATTACK_SHORT }}:</span>{{ card.max_attack }}〜&nbsp;
+                            <span class="color_orange">MAX{{T.CARD_DEFENSE_SHORT }}:</span>{{ card.max_defense }}〜<br />
+                        {% else %}
+                            <span class="color_orange">{{T.CARD_ATTACK_SHORT }}:</span>{{ card.attack }}&nbsp;
+                            <span class="color_orange">{{T.CARD_DEFENSE_SHORT }}:</span>{{ card.defense }}<br />
+                        {% endif %}
+                    </span>
+                    {{text}}
+                </td>
+            </tr>
+        </table>
+
+
+
+    {% else %}
+
+        <table width="100%">
+            <tr>
+                <td width="80" class="center" valign="middle">
+                    <img src="-" class="image_card_short" />
+                </td>
+                <td valign="middle" class="left">
+                    <span class="element_1">-</span>&nbsp;-&nbsp;<span class="color_light_yellow">(-)</span><br />
+                    <span class="color_orange">属性:</span>-&nbsp;<span class="color_orange">{{T.CARD_FAMILY}}:</span>-<br />
+                    {{text}}
+                </td>
+            </tr>
+        </table>
+
+
+
+    {% endif %}
+{% elif showtype == "smart_short" %}
+
+
+    {% if card %}
+
+
+       <table width="100%">
+            <tr>
+                <td valign="middle" class="center">
+                    <img src="{{ card.image_url.short }}" class="image_card_short" />
+                </td>
+            </tr>
+            <tr>
+                <td valign="middle" class="center">
+                    <span class="td_font bold" style="font-size:12px;">
+                        <span class="element_{{ card.element_obj.id }}">{{ card.element_obj.name }}</span>&nbsp;{{ card.name }}&nbsp;<span class="color_light_yellow">({{ card.rarity_obj.name}})</span><br />
+                    </span>
+                    {{text}}
+                </td>
+            </tr>
+        </table>
+
+
+
+    {% else %}
+
+        ｰｰｰ
+
+
+
+    {% endif %}
+
+{% elif showtype == "medium" %}
+
+
+    {% if card %}
+        <div class="center">
+            <div class="center m5">
+                <span class="element_{{ card.element_obj.id }}">{{ card.element_obj.name }}</span>&nbsp;{{ card.name }}&nbsp;<span class="color_light_yellow">({{ card.rarity_obj.name}})</span>
+            </div>
+
+
+            <div class=" center mb5">
+                <img src="{{ card.image_url.medium }}" class="image_card_medium" />
+            </div>
+
+            {% if not data == "non" %}
+                {% if not comment == "non" %}
+                <div class="voice_lines">
+                    <img src="{{MEDIA_URL}}/imgs/common/friend_text_top.png" width="100%" />
+                        <div class="ms5">{{ card.get_detail.profile_comment }}</div>
+                    <img src="{{MEDIA_URL}}/imgs/common/friend_text_bottom.png" width="100%" />
+                </div>
+                {% endif %}
+                <div class="mt5">
+                    {% if max_flag %}
+                        <span class="color_orange">MAX{{T.CARD_ATTACK_SHORT }}:</span>{{ card.max_attack }}〜&nbsp;
+                        <span class="color_orange">MAX{{T.CARD_DEFENSE_SHORT }}:</span>{{ card.max_defense }}〜<br />
+                    {% else %}
+                        <span class="color_orange">{{T.CARD_ATTACK_SHORT }}:</span>{{ card.attack }}&nbsp;
+                        <span class="color_orange">{{T.CARD_DEFENSE_SHORT }}:</span>{{ card.defense }}<br />
+                    {% endif %}
+
+
+                    <span class="color_orange">{{T.CARD_NEED_COST}}:</span>{{ card.require_magic }}&nbsp;
+                    <span class="color_orange">属性:</span>{{ card.race_obj.name }}&nbsp;
+                    <span class="color_orange">{{T.CARD_FAMILY}}:</span>{{ card.family_obj.name }}
+                </div>
+                <div class="ms">
+                    {% include './partial/chain_skill_list.html' with card=card reward_card=1 %}
+                </div>
+            {% endif %}
+
+            {% if text %}
+            <div class="">{{text}}</div>
+            {% endif %}
+
+        </div>
+
+    {% else %}
+
+        <div class="center">
+            <p class="center m5">
+                <span class="element_1">-</span>&nbsp;-&nbsp;<span class="color_light_yellow">(-)</span>
+            </p>
+
+            <div class="card_detail_img_bg center mb5">
+                <img src="-" class="image_card_medium" />
+            </div>
+
+            {% if not data == "non" %}
+                {% if not comment == "non" %}
+                <div class="voice_lines">
+                    <img src="{{MEDIA_URL}}/imgs/common/friend_text_top.png" width="100%" />
+                        <div class="ms5">-</div>
+                    <img src="{{MEDIA_URL}}/imgs/common/friend_text_bottom.png" width="100%" />
+                </div>
+                {% endif %}
+                <div class="mt5">
+                    <span class="color_orange">{{T.CARD_ATTACK_SHORT }}:</span>-&nbsp;
+                    <span class="color_orange">{{T.CARD_DEFENSE_SHORT }}:</span>-<br />
+                    <span class="color_orange">{{T.CARD_NEED_COST}}:</span>-&nbsp;
+                    <span class="color_orange">属性:</span>-&nbsp;
+                    <span class="color_orange">{{T.CARD_FAMILY}}:</span>-
+                </div>
+            {% endif %}
+
+            {% if text %}
+            <div class="">{{text}}</div>
+            {% endif %}
+
+        </div>
+
+    {% endif %}
+
+
+{% elif showtype == "big" %}
+
+
+    {% if card %}
+        <div class="center mb5">
+            <div class="center element_titleback_{{ card.element_obj.id }} radius10 m10">
+                <span class="element_{{ card.element_obj.id }}">{{ card.element_obj.name }}</span>&nbsp;{{ card.name }}&nbsp;<span class="color_light_yellow">({{ card.rarity_obj.name}})</span>
+            </div>
+
+            <div class="center mb5">
+                <img src="{{ card.image_url.anim }}" class="" style="width: 230px;height: auto;" />
+            </div>
+
+            {% if not data == "non" %}
+                {% if not comment == "non" %}
+                <div class="voice_lines">
+                    <img src="{{MEDIA_URL}}/imgs/common/friend_text_top.png" width="100%" />
+                        <div class="ms5">{{ card.get_detail.profile_comment }}</div>
+                    <img src="{{MEDIA_URL}}/imgs/common/friend_text_bottom.png" width="100%" />
+                </div>
+                {% endif %}
+                <div class="mt5">
+                    {% if max_flag %}
+                        <span class="color_orange">MAX{{T.CARD_ATTACK_SHORT }}:</span>{{ card.max_attack }}〜&nbsp;
+                        <span class="color_orange">MAX{{T.CARD_DEFENSE_SHORT }}:</span>{{ card.max_defense }}〜<br />
+                    {% else %}
+                        <span class="color_orange">{{T.CARD_ATTACK_SHORT }}:</span>{{ card.attack }}&nbsp;
+                        <span class="color_orange">{{T.CARD_DEFENSE_SHORT }}:</span>{{ card.defense }}<br />
+                    {% endif %}
+
+                    <span class="color_orange">{{T.CARD_NEED_COST}}:</span>{{ card.require_magic }}&nbsp;
+                    <span class="color_orange">属性:</span>{{ card.race_obj.name }}&nbsp;
+                    <span class="color_orange">{{T.CARD_FAMILY}}:</span>{{ card.family_obj.name }}
+                </div>
+                <div class="ms">
+                    {% include './partial/chain_skill_list.html' with card=card reward_card=1 %}
+                </div>
+            {% endif %}
+
+            {% if text %}
+                <div class="">{{text}}</div>
+            {% endif %}
+
+        </div>
+
+    {% else %}
+
+        <div class="center mt5">
+            <p class="center m5">
+                <span class="element_1">-</span>&nbsp;-&nbsp;<span class="color_light_yellow">(-)</span>
+            </p>
+
+
+            <div class="card_detail_img_bg center mb5">
+                <img src="-" style="width: 230px;height: auto;" />
+            </div>
+
+            {% if not data == "non" %}
+                {% if not comment == "non" %}
+                <div class="voice_lines">
+                    <img src="{{MEDIA_URL}}/imgs/common/friend_text_top.png" width="100%" />
+                        <div class="ms5">-</div>
+                    <img src="{{MEDIA_URL}}/imgs/common/friend_text_bottom.png" width="100%" />
+                </div>
+                {% endif %}
+                <div class="mt5">
+                    <span class="color_orange">{{T.CARD_ATTACK_SHORT }}:</span>-&nbsp;
+                    <span class="color_orange">{{T.CARD_DEFENSE_SHORT }}:</span>-<br />
+                    <span class="color_orange">{{T.CARD_NEED_COST}}:</span>-&nbsp;
+                    <span class="color_orange">属性:</span>-&nbsp;
+                    <span class="color_orange">{{T.CARD_FAMILY}}:</span>-
+                </div>
+            {% endif %}
+
+            {% if text %}
+                <div class="">{{text}}</div>
+            {% endif %}
+
+        </div>
+
+    {% endif %}
+
+{% elif showtype == "large" %}
+
+
+    {% if card %}
+        <div class="center mb5">
+            <div class="center element_titleback_{{ card.element_obj.id }} radius10 m10">
+            </div>
+
+
+            <div class="center mb5">
+                <img src="{{ card.image_url.large }}" class="" style="width: 320px;height: auto;" />
+            </div>
+
+            {% if not data == "non" %}
+                {% if not comment == "non" %}
+                <div class="voice_lines">
+                    <img src="{{MEDIA_URL}}/imgs/common/friend_text_top.png" width="100%" />
+                        <div class="ms5">{{ card.get_detail.profile_comment }}</div>
+                    <img src="{{MEDIA_URL}}/imgs/common/friend_text_bottom.png" width="100%" />
+                </div>
+                {% endif %}
+                <div class="mt5">
+                    {% if max_flag %}
+                        <span class="color_orange">MAX{{T.CARD_ATTACK_SHORT }}:</span>{{ card.max_attack }}〜&nbsp;
+                        <span class="color_orange">MAX{{T.CARD_DEFENSE_SHORT }}:</span>{{ card.max_defense }}〜<br />
+                    {% else %}
+                        <span class="color_orange">{{T.CARD_ATTACK_SHORT }}:</span>{{ card.attack }}&nbsp;
+                        <span class="color_orange">{{T.CARD_DEFENSE_SHORT }}:</span>{{ card.defense }}<br />
+                    {% endif %}
+
+                    <span class="color_orange">{{T.CARD_NEED_COST}}:</span>{{ card.require_magic }}&nbsp;
+                    <span class="color_orange">属性:</span>{{ card.race_obj.name }}&nbsp;
+                    <span class="color_orange">{{T.CARD_FAMILY}}:</span>{{ card.family_obj.name }}
+                </div>
+                <div class="ms">
+                    {% include './partial/chain_skill_list.html' with card=card reward_card=1 %}
+                </div>
+            {% endif %}
+
+            {% if text %}
+            <div class="">{{text}}</div>
+            {% endif %}
+
+        </div>
+
+    {% else %}
+
+        <div class="center mt5">
+            <p class="center m5">
+                <span class="element_1">-</span>&nbsp;-&nbsp;<span class="color_light_yellow">(-)</span>
+            </p>
+
+            <div class="card_detail_img_bg center mb5">
+                <img src="-" style="width: 320px;height: auto;" />
+            </div>
+
+            {% if not data == "non" %}
+                {% if not comment == "non" %}
+                <div class="voice_lines">
+                    <img src="{{MEDIA_URL}}/imgs/common/friend_text_top.png" width="100%" />
+                        <div class="ms5">-</div>
+                    <img src="{{MEDIA_URL}}/imgs/common/friend_text_bottom.png" width="100%" />
+                </div>
+                {% endif %}
+                <div class="mt5">
+                    <span class="color_orange">{{T.CARD_ATTACK_SHORT }}:</span>-&nbsp;
+                    <span class="color_orange">{{T.CARD_DEFENSE_SHORT }}:</span>-<br />
+                    <span class="color_orange">{{T.CARD_NEED_COST}}:</span>-&nbsp;
+                    <span class="color_orange">属性:</span>-&nbsp;
+                    <span class="color_orange">{{T.CARD_FAMILY}}:</span>-
+                </div>
+            {% endif %}
+
+            {% if text %}
+                <div class="">{{text}}</div>
+            {% endif %}
+
+        </div>
+
+    {% endif %}
+
+{% elif showtype == "large2" %}
+
+    {% if card.rarity >= 19 %}
+        <img src="{{ MEDIA_URL }}/imgs/card/miyabiEffect/Loading.jpg" width="320" height="400" style="border: 1px; top:35px; z-index: 10;" id="dummy">
+        <iframe src="{% opensocial_url xr_anim card.id %}" width="320" height="400" style="border: 1px;display:none;" id="child-frame"></iframe>
+        {% voice_miyabi card.profile_comment %}
+        <script>
+            $('#child-frame').load(function(){
+                $('#dummy').css('position', 'absolute');
+                $('#child-frame').fadeIn(1000);
+                $('#dummy').fadeOut(500);
+            });
+        </script>
+    {% else %}
+        <img src="{{ card.image_url.large }}" class="image_card_large" />
+    {% endif %}
+    <div class="left">
+        <div class="element_nameback_{{ card.element_obj.id }} element_name">
+            <span class="element_{{ card.element_obj.id }}">{{ card.element_obj.name }}</span>&nbsp;{{ card.name }}&nbsp;<span class="color_light_yellow">({{ card.rarity_obj.name}})</span>
+        </div>
+        <div class="pr5 pl5 card_data_effects">
+            <span class="font13">
+                <span class="color_orange">{{T.CARD_NEED_COST}}:</span>{{ card.require_magic }}&nbsp;
+                <span class="color_orange">{{T.CARD_ELEMENT}}:</span>{{ card.element_obj.name }}&nbsp;
+                <span class="color_light_orange">{{T.CARD_RACE}}:</span>{{ card.race_obj.name }}&nbsp;
+                <span class="color_light_orange">{{T.CARD_FAMILY}}:</span>{{ card.family_obj.name }}
+                <br />
+                <span class="color_light_orange">MAX{{T.CARD_ATTACK_SHORT}}:</span><span style="color:#fec0cf">{{ card.max_attack }}</span>〜&nbsp;
+                <span class="color_light_orange">MAX{{T.CARD_DEFENSE_SHORT }}:</span><span style="color:#bce8fe">{{ card.max_defense }}</span>〜&nbsp;
+            </span>
+
+            <div class="mt5">
+                {% if card.chain_skill_2 or player_card.ability_2.name %}
+                    <span class="color_light_orange">ｲﾍﾞﾝﾄ{{ T.SKILL }}</span>:{{ card.chain_skill_2.name }}<br />
+                    <span class="color_light_orange">効果</span>:{{ card.ability2_effect_description }}
+                {% else %}
+                    <span class="color_light_orange">{{ T.SKILL_1 }}</span>:{{ card.chain_skill_1.name }}<br />
+                    <span class="color_light_orange">効果</span>:{{ card.effect_description }}
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+{% endif %}
+
+<style >
+    .new_button_voice {
+        position: absolute;
+        background-size: 320px;
+        background-repeat: no-repeat;
+        z-index: 1;
+        top: 370px;
+        width: 320px;
+        height: 40px;
+        margin-left: 290px;
+    }
+    .effect_button_small {
+        width: 110px;
+        height: 29px;
+        background-image:url('/static/sp/imgs/common/button/button_small.png');
+        background-size: 110px;
+        background-repeat: no-repeat;
+        line-height: 29px;
+        vertical-align: middle;
+        font-weight: bold;
+        font-size: 13px;
+        color: #ffffff;
+        text-shadow: 1px 1px 2px #000000;
+        text-align: center;
+    }
+</style>
