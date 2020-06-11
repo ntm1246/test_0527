@@ -1,0 +1,3 @@
+[submodule "subtest"]
+	path = subtest
+	url = https://github.com/ntm1246/sub_test.git
